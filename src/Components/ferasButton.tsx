@@ -7,7 +7,7 @@ export const FerasButton = (): JSX.Element => {
     }
     return (
         <>
-            <button className='ferasButton' onClick={AlertMe}>Feras Amer !</button>
+            <button className='glow-on-hover' onClick={AlertMe}>Feras Amer !</button>
         </>
     )
 }
