@@ -1,4 +1,4 @@
-import './ZoharButton.css'
+import "./yoni.css";
 
 export const YoniButton = () => {
   console.log("my button");
@@ -10,7 +10,7 @@ export const YoniButton = () => {
 
   return (
     <>
-      <button className="zoharBtn" onClick={handleButton}>
+      <button className="yoniBtn" onClick={handleButton}>
         {title}
       </button>
     </>
