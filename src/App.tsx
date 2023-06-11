@@ -2,13 +2,14 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { MyButton } from './Components/MyButton'
+import { RoeyButton } from './Components/RoeyButton';
+
 
 function App() {
-    console.log(logo)
   return (
     <div className="App">
       <header className="App-header">
-        <MyButton />
+        <RoeyButton />
       </header>
     </div>
   );
