@@ -11,9 +11,9 @@ import { ZoharButton } from './Components/ZoharButton';
 import { YoniButton } from './Components/YoniButton';
 import { FadizButton } from './Components/FadizButton';
 import { SaoButton } from './Components/SaoButton';
+import { RoeyButton } from './Components/RoeyButton';
 
 function App() {
-    console.log(logo)
   return (
     <div className="App">
       <header className="App-header">
@@ -26,6 +26,7 @@ function App() {
         <YoniButton />
         <FadizButton />
         <SaoButton />
+        <RoeyButton />
       </header>
     </div>
   );
