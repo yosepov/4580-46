@@ -1,0 +1,29 @@
+@keyframes animation {
+    from {
+        width: 300px;
+        color: black;
+    }
+
+    to {
+        width: 500px;
+        color: white;
+    }
+}
+
+.ferasButton {
+    align-items: center;
+    text-align: center;
+    background-color: chocolate;
+    color: black;
+    border: 2px solid black;
+    border-radius: 20px;
+    height: 100px;
+    width: 300px;
+    font-size: xx-large;
+}
+.ferasButton:hover{
+    animation-name: animation;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
