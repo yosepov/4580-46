@@ -1,3 +1,4 @@
+import './ZoharButton.css'
 export const ZoharButton = () => {
     const handleButton = () => {
         alert("This is Zohars Button")

@@ -1,3 +1,5 @@
+import './ZoharButton.css'
+
 export const YoniButton = () => {
   console.log("my button");
   const title = "click me";
@@ -8,7 +10,7 @@ export const YoniButton = () => {
 
   return (
     <>
-      <button onClick={handleButton} className="css">
+      <button className="zoharBtn" onClick={handleButton}>
         {title}
       </button>
     </>

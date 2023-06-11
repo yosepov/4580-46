@@ -17,16 +17,16 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <AdirButton />
-        <OfekButton />
-        <FerasButton />
-        <OmriButton />
-        <IsraelButton />
-        <ZoharButton />
-        <YoniButton />
+        {/* <AdirButton /> */}
+        {/* <OfekButton /> */}
+        {/* <FerasButton /> */}
+        {/* <OmriButton /> */}
+        {/* <IsraelButton /> */}
+        {/* <ZoharButton /> */}
+        {/* <YoniButton /> */}
+        {/* <SaoButton /> */}
+        {/* <RoeyButton /> */}
         <FadizButton />
-        <SaoButton />
-        <RoeyButton />
       </header>
     </div>
   );
