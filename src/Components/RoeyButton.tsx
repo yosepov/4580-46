@@ -5,7 +5,7 @@ export const RoeyButton = () => {
 
   const handleClick = () => {
     alert('Erez do you want to be my friend? Please!')
-    setButtonText("Congratz we are friends now!");
+    setButtonText("Congratz we are friends now!!");
   };
 
   return (
