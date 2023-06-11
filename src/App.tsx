@@ -17,7 +17,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        {/* <AdirButton /> */}
+        <AdirButton />
         {/* <OfekButton /> */}
         {/* <FerasButton /> */}
         {/* <OmriButton /> */}
@@ -26,7 +26,7 @@ function App() {
         {/* <YoniButton /> */}
         {/* <SaoButton /> */}
         {/* <RoeyButton /> */}
-        <FadizButton />
+        {/* <FadizButton /> */}
       </header>
     </div>
   );
