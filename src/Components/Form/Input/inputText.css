@@ -1,0 +1,9 @@
+.inputText{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #DDE6ED;
+    color: #DDE6ED;
+    margin: 25px 10px;
+    font-size: 18px;
+}

@@ -1,0 +1,19 @@
+.signinContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.signBox {
+    height: 500px;
+    width: 400px;
+    border: 2px solid #DDE6ED;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 1px 1px 8px #DDE6ED;
+}
+
+.signinTitle{
+    color: #DDE6ED;
+}

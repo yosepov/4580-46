@@ -1,8 +1,10 @@
 import React from 'react';
+import { SigninPage } from './Components/Signin/Signin';
 
 export const  App = () => {
-  return (<h1>Steal</h1>);
+  return (
+    <>
+  <SigninPage />
+    </>
+  );
 }
-
-
-
