@@ -6,5 +6,5 @@ interface MainButtonProps {
 
 export const MainButton = ({title}: MainButtonProps) => {
 
-    return <button className='mainButton'>{title}</button>
+    return <button className='mainButton' >{title}</button>
 }

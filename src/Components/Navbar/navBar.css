@@ -1,0 +1,16 @@
+.navbar {
+    display: flex;
+    height: 40px;
+    border-bottom: 1px solid #DDE6ED;
+    box-shadow: 0 1px 3px #DDE6ED;
+}
+
+img {
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+}
+
+.buttons {
+    margin: 0 auto 0 auto;
+}

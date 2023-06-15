@@ -1,0 +1,23 @@
+.navButton{
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    margin: 10px auto;
+    width: 100px;
+    color: #DDE6ED;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.navButton:hover{
+    background-color: #DDE6ED;
+    color: #041C32;
+    border-radius: 10px;
+    border: none;
+}
+.navButton:active{
+    background-color: #000;
+    color: #fff;
+    border-radius: 10px;
+    border: none;
+}
