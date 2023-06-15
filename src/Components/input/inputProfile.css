@@ -1,0 +1,51 @@
+.InputProfileContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vh;
+    padding: 20px;
+    margin: 10px auto;
+    background-color: #171a21;
+    color: #c6d4df;
+    border: 1px solid #66c0f4;
+    border-radius: 4px;
+}
+
+.InputProfileContainer img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #66c0f4;
+    object-fit: cover;
+}
+
+.UserInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    margin-left: 20px;
+}
+
+.UserInfo h2, .UserInfo h3 {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #c6d4df;
+}
+
+.UserInfo h2 {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+.UserInfo h3 {
+    font-size: 1.2em;
+    color: #66c0f4;
+}
+
+.InputProfileContainer p {
+    font-family: Arial, sans-serif;
+    font-size: 1em;
+    color: #c6d4df;
+}
