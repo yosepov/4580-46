@@ -4,15 +4,15 @@
 
 .downloadButton {
     position: relative;
-    font-size: 8px;
+    font-size: 12px;
     text-align: center;
     color: #DDE6ED;
     background-color: #4CAF50;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    top: -75px;
-    left: -180px;
+    top: -100px;
+    left: -175px;
 }
 
 .downloadButton:hover {
@@ -37,17 +37,18 @@
     width: 200px;
     height: 280px;
     opacity: 1;
-    border: 2px solid black;
+    border: 2px solid #454545;
+    border-radius: 5px;
 }
 
 .gameCardDescription {
     position: relative;
-    top: -220px;
+    top: -200px;
     left: -190px;
-    font-size: 8px;
+    font-size: 12px;
     opacity: 0;
     width: 180px;
-    height: auto;
+    height: 50px;
     background: transparent;
     color: #DDE6ED;
     border: none;
@@ -57,9 +58,9 @@
 
 .gameCardPrice {
     position: relative;
-    top: -30px;
+    top: -40px;
     left: -85px;
-    font-size: 8px;
+    font-size: 12px;
     opacity: 0;
     cursor: default;
 }
@@ -67,8 +68,8 @@
 .gameCardGeners {
     position: relative;
     top: -140px;
-    left: -85px;
-    font-size: 8px;
+    left: -90px;
+    font-size: 12px;
     opacity: 0;
     cursor: default;
 }
@@ -84,4 +85,12 @@
 .gameCardImg:hover~.downloadButton {
     opacity: 1;
     transition: 0.3s;
+}
+
+.gameCardDescription:hover,
+.gameCardDescription:hover~.gameCardPrice,
+.gameCardDescription:hover~.gameCardGeners,
+.gameCardDescription:hover~.downloadButton{
+    opacity: 1;
+    transition: 0.3s;  
 }
