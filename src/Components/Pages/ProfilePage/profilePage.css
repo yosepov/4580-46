@@ -1,0 +1,255 @@
+.ProfilePageContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 4%;
+    margin-bottom: 4%;
+}
+
+.profileBox {
+    width: 976px;
+    height: max-content;
+    border: 2px solid #DDE6ED;
+    text-align: center;
+    box-shadow: 1px 1px 8px #DDE6ED;
+    height: 1200px;
+    background-color: #282A3A;
+}
+
+.profileHeader{
+    display: flex;
+    width: 100%;
+    height: 200px;
+    color: #DDE6ED;
+    justify-content: flex-start;
+}
+
+.avatarImage{
+    width: 150px;
+    margin-left: 40px;
+    margin-top: 40px;
+    border-radius: 20px;
+    border: 2px solid #DDE6ED;
+    box-shadow: 1px 1px 8px #DDE6ED;
+}
+
+.avatarImage:hover {
+    animation: CoolAnimation 2s infinite alternate;
+}
+
+@keyframes CoolAnimation{
+    0%{
+      transform: rotate(0deg) scale(1);
+    }
+    100%{
+        transform: rotate(0deg) scale(1.2);
+    }
+}
+
+.nickNameDiv{
+    margin-left: 3%;
+    margin-top: 2%;
+}
+
+.nickNameH1{
+    font-weight: 800;
+    font-family:'Times New Roman', Times, serif;
+}
+
+.profileHeaderInfo{
+    display: flex;
+    width: 100%;
+    height: 80px;
+    font-size: xx-large;
+    font-weight: 700;
+    margin-left: 32%;
+    margin-top: 4%;
+}
+
+.levelIcon{
+    width: 40px;
+    height: 40px;
+    border: 2px solid #DDE6ED;
+    border-radius: 100%;
+    margin-left: 5%;
+}
+
+.levelNumber{
+    text-align: center;
+}
+
+.profileLeftCol{
+    display: flex;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    color: rgb(150, 150, 150);
+    background-color: rgb(24, 29, 36);
+    margin: 4% 2% 2% 2%;
+    padding-left: 2%;
+    width: 65%;
+}
+
+.pHInstructionsContainer{
+    background-color: #041C32;
+    color: #DDE6ED;
+    margin-top: 100px;
+    margin-right: 0px;
+    text-align: center;
+    font-size: small;
+    border: 1px solid #DDE6ED;
+}
+
+.editProfileBtn{
+    display: flex;
+    width: 100px;
+    height: 30px;
+    background-color: rgb(24, 29, 36);
+    color: #DDE6ED;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 3px;
+}
+
+.editProfileBtn:hover{
+    background-color: #DDE6ED;
+    color: #0e1b29;
+    cursor: pointer;
+}
+
+.editProfileBtn:active{
+    background-color: #9BABB8;
+    color: #0e1b29;
+}
+
+.editProfileBtnContainer{
+    display: flex;
+    justify-content:space-evenly;
+}
+
+.recentGameContectContainer{
+    display: flex;
+    width: 65%;
+    background-color: rgb(24, 29, 36);
+    margin: 0 2% 0 2%;
+    padding-left: 2%;
+}
+
+.imgGameCapsule{
+    width: 184px;
+    height: 69px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.pupgGameLink{
+    color: #DDE6ED;
+    text-decoration: none;
+    margin-left: 4px;
+    height: 20px;
+    margin-top: 16px;
+}
+
+.pupgGameLink:hover{
+    color: rgb(87, 170, 197);
+}
+
+.gameInfoDetailsContainer{
+    display: flex;
+    width: 350px;
+    align-items: end;
+    justify-content: center;
+}
+
+.gameInfoDetails{
+    color: #959494;
+    width: 160px;
+}
+
+.gameInfoAchievementsSummaryArea{
+    display: flex;
+    background-color: rgb(24, 29, 36);
+    width: 65%;
+    height: 92px;
+    margin: 0 2% 0 2%;
+    padding-left: 2%;
+}
+
+.game_info_achievements_summary_area{
+    display: flex;
+    width: 361px;
+    height: 32px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+.AchievementProgressLink{
+    color: #DDE6ED;
+    text-decoration: none;
+}
+
+.AchievementProgressLink:hover{
+    color: rgb(87, 170, 197);
+}
+
+.ellipsis{
+    color: #959494;
+    width: 100px;
+}
+
+.achievement_progress_bar_ctn{
+    width: 188px;
+    height: 14px;
+    background-color:#0e1b29;
+    border: none;
+    border-radius: 20px;
+}
+
+.progress_bar{
+    width: 138px;
+    height: 8px;
+    background-color:#2e4258;
+    border: none;
+    border-radius: 20px;
+    margin: 3px 3px 3px 3px;
+}
+
+.progress_bar2{
+    width: 90px;
+    height: 8px;
+    background-color:#2e4258;
+    border: none;
+    border-radius: 20px;
+    margin: 3px 3px 3px 3px;
+}
+
+.achievement_icons_container{
+    display: flex;
+    width: 400px;
+    justify-content: end;
+}
+
+.achievement_icons{
+    display: flex;
+    height: 32px;
+}
+
+
+.imgIcon{
+    width: 32px;
+    height: 32px;
+}
+
+.game_info_achievement_plus_more{
+    display: flex;
+    width: 35px;
+    height: 32px;
+    color: #DDE6ED;
+    background-color: #0e1b29;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.recentGameContectCard{
+    display: flex;
+    flex-direction: column;
+}
