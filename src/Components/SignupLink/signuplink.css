@@ -1,0 +1,46 @@
+.SignUpLink{
+    text-decoration: underline;
+    cursor: pointer;
+    color: #fff;
+    
+}
+
+
+.SignUpLink:hover{
+    font-style: italic;
+    animation: animate 7s infinite linear;
+
+}
+@keyframes animate {
+    0%{
+        color: #262626;
+    }
+    20%{
+        color: #fff;
+        text-shadow: 8px 8px 8px #262626,0 0 20px #ff11ff;
+    }
+    30%{
+        color: #262626;
+        text-shadow: none;
+    }
+    40%{
+        color: blue;
+        text-shadow: 8px 8px 8px #262626,0 0 20px #ff11ff;
+    }
+    50%{
+        color: #fff;
+        text-shadow: none;
+    }
+    60%{
+        color: #262626;
+        text-shadow: none;
+    }
+    75%{
+        color: #ff11ff;
+        text-shadow: 8px 8px 8px #262626,0 0 20px #ff11ff;
+    }
+    100%{
+        color: #262626;
+        text-shadow: none;
+    }
+}
