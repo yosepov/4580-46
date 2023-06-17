@@ -1,0 +1,33 @@
+.button {
+  margin: 15px;
+  padding: 8px;
+  border-radius: 5px;
+  background-color: transparent;
+  border: none;
+  /* border-bottom: 1px solid #DDE6ED; */
+  color: #dde6ed;
+  cursor: pointer;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 1rem;
+  position: relative;
+  transition: 300ms ease-in;
+}
+
+.button:hover {
+  color: #607c96;
+
+  transition: 300ms ease-out;
+
+  /* background-color: #DDE6ED;
+  color: #041C32;
+  border-radius: 10px;
+  border: none; */
+}
+
+/* .button:active{
+    background-color: #041C32;
+    color: #fff;
+    border-radius: 10px;
+    border: none;
+} */
