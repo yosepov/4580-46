@@ -11,6 +11,7 @@ interface ProfilePageProps {
 export const ProfilePage = ({userImg, username, nickname, email}: ProfilePageProps) => {
 
     return (
+        
         <div className='ProfilePageContainer'>
             <div className='profileBox'>
                 <div className='profileHeader'>
