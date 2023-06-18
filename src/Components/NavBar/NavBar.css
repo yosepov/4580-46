@@ -1,0 +1,26 @@
+.navBar{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+    /* height: 100vh; */
+    background-color: black;
+    /* margin: 5px; */
+    border-bottom: 2px solid #DDE6ED;
+    border-top: 2px solid #DDE6ED;
+    text-align: center;
+}
+
+.navBar > h1{
+    color:#DDE6ED;
+    margin-left: 20px;
+}
+.navBar > button{
+    height: 25px;
+
+}
+
+.navBar > button:nth-of-type(3){
+    margin-right: auto;
+}

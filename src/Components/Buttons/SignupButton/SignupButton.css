@@ -1,0 +1,27 @@
+.signupButton{
+    background-color: transparent;
+    border: 2px solid #DDE6ED;
+    font-size: 18px;
+    display: block;
+    margin: 30px auto;
+    width: 300px;
+    color: #DDE6ED;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: all 1s;
+}
+
+.signupButton:hover{
+    background-color: #DDE6ED;
+    color: #041C32;
+    border-radius: 10px;
+    border: none;
+    width: 350px;
+}
+.signupButton:active{
+    background-color: #000;
+    color: #fff;
+    border-radius: 10px;
+    border: none;
+}
