@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600;1,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+.body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.card-container{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  flex-wrap: wrap;
+  z-index: 1;
+}
+.card-container .card{
+  position: relative;
+  width: 280px;
+  height: 400px;
+  margin: 30px;
+  box-shadow: 0 0 20px rgb(0, 0, 0);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.209);
+  overflow: hidden;
+  border: 1px solid black;
+  backdrop-filter:blur(5px);
+ transition: all 0.5s;
+}
+.image-container img{
+  width: 250px;
+  height: 280px;
+  border-radius: 15px;
+  margin: 5px;
+  box-shadow: 0 0 25px black;
+  transition: all 0.5s;
+}
+.card-container .card .content{
+
+  padding: 10px;
+  transition: 0.5s;
+  position: absolute;
+  bottom: -10px;
+}
+.card-container .card .card-title{
+  pointer-events: none;
+  font-size: 1.5em;
+  font-family: 'Playfair Display', serif;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.174);
+  position: absolute;
+  border-radius: 15px;
+  height: 50px;
+  width: 150px;
+  transform: translate(50px , -10px);
+}
+.titleImage img{
+  width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  transform: translateX(-2px) translateY(-10px);
+}
+.game-genres{
+  transform: translateX(55px) translateY(35px);
+  font-size: 12px;
+}
+.game-price{
+  display: flex;
+  justify-content: center;
+  color: rgb(255, 255, 255);
+  background-color: rgba(60, 129, 49, 0.983);
+  transform: translateX(208px) translateY(40px);
+  border: 1px solid rgb(255, 255, 255);
+  box-shadow: 0 0 4px rgb(0, 255, 0);
+  width: 55px;
+  border-radius: 10px;
+  pointer-events: none;
+}
+.card-description{
+  text-align: center;
+  font-size: 12px;
+  transform: scale(0);
+  transition: all 0s;
+}
+.card-container:hover .card-description{
+  transform: scale(1);
+  transition: all 0.8s;
+}
+.card-description .descriptionTitle{
+  margin: 5px;
+  font-size: 15px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid;
+  text-shadow: 0 0 5px #fff;
+}
+.card-description p{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 100;
+}
+.card-container:hover .card{
+  transform: scale(1.15);
+  transition: 0.5s ease-in;
+  border: 1px solid black;
+  box-shadow: 0 0 20px rgb(0, 0, 0);
+}
+.card-container:hover .image-container img{
+  transform: rotateY(190deg);
+  backface-visibility: hidden;
+  transition: 0.5s ease-in;
+}
+ .video{
+  max-width: 100%;
+  backface-visibility: hidden;
+  transform: translateX(-10px) translateY(150px) scale(0) ;
+}
+.card-container:hover .video {
+  transform:translateX(-10px) translateY(12px)  ;
+  transition:all 0.8s;
+}
+.card-description .icon{
+  font-size: 1.5em;
+  border-radius: 5px;
+  border: 1px solid;
+  color: rgb(255, 255, 255);
+padding: 2px;
+margin: 2px;
+}
+.homeIcon{
+  font-size: 1.5em;
+  border-radius: 5px;
+  border: 1px solid;
+  color: rgb(255, 255, 255);
+  background-color: green;
+padding: 2px;
+margin: 2px;
+margin: 5px;
+}
+.homeIcon:hover{
+  background-color: rgb(255, 255, 255);
+  color: green;
+  transform: scale(2);
+}
+.icons{
+  transform: translate(-60px , 32px);
+}
+.lobbyIcons{
+  transform: translate(150px , -28px);
+}
+.tilt-card:hover{
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
