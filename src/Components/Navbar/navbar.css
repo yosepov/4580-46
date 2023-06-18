@@ -1,0 +1,63 @@
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px 100px;
+    /* box-shadow: 1px 1px 8px #dde6ed; */
+    border-bottom: 2px solid #dde6ed15;
+}
+
+.ulNbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.liNbar {
+    list-style: none;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.aNbar:link,
+.aNbar:visited {
+    color: #dde6ed;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: 0.3s ease-in-out;
+}
+
+.aNbar:hover,
+.aNbar:active {
+    color: #ebf0f4;
+    font-size: 1.2rem;
+}
+
+.aNbar:hover::after {
+    content: "";
+    width: 40%;
+    height: 2px;
+    background: #a7ceed;
+    position: absolute;
+    bottom: -4px;
+    left: 0px;
+}
+
+.logo {
+    font-family: "Russo One", sans-serif;
+    font-size: 2.3rem;
+    text-decoration: none;
+    color: #dde6ed;
+    transition: 0.3s ease-in-out;
+}
+
+.logo:hover {
+    color: #e4ebf0;
+    font-size: 2.4rem;
+}
+
+#mobile {
+    color: white;
+}

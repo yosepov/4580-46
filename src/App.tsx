@@ -1,10 +1,12 @@
-import React from 'react';
-import { SigninPage } from './Components/Signin/Signin';
+import React from "react";
+import { SigninPage } from "./Components/Signin/Signin";
+import { Navbar } from "./Components/Navbar/Navbar";
 
-export const  App = () => {
+export const App = () => {
   return (
     <>
-  <SigninPage />
+      <Navbar />
+      <SigninPage />
     </>
   );
-}
+};
