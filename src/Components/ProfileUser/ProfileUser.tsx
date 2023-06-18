@@ -26,7 +26,7 @@ export const ProfileUser =({img,country , username, nickname, email}: ProfileUse
       <div className="user-info">
         
         <img
-          src="./src/assets/avatar.jpeg"
+          src="./assets/avatar.jpeg"
           width={200}
           alt="avatar"
           className="avatar"
@@ -49,7 +49,7 @@ export const ProfileUser =({img,country , username, nickname, email}: ProfileUse
           <li >
             <img
               width={100}
-              src="./src/assets/sims.jpeg"
+              src="./assets/sims.jpeg"
               alt="Warkraft photo"
               className="game-avatar"
             />
@@ -63,7 +63,7 @@ export const ProfileUser =({img,country , username, nickname, email}: ProfileUse
           <li>
             <img
               width={100}
-              src="./src/assets/gta5.jpeg"
+              src="./assets/gta5.jpeg"
               alt="Warkraft photo"
               className="game-avatar"
             />
@@ -75,7 +75,7 @@ export const ProfileUser =({img,country , username, nickname, email}: ProfileUse
           <li>
             <img
               width={100}
-              src="./src/assets/warcraft.jpeg"
+              src="./assets/warcraft.jpeg"
               alt="Warkraft photo"
               className="game-avatar"
             />
@@ -88,7 +88,7 @@ export const ProfileUser =({img,country , username, nickname, email}: ProfileUse
           <li>
             <img
               width={100}
-              src="./src/assets/1.jpeg"
+              src="./assets/1.jpeg"
               alt="Warkraft photo"
               className="game-avatar"
             />
@@ -100,7 +100,7 @@ export const ProfileUser =({img,country , username, nickname, email}: ProfileUse
           <li>
             <img
               width={100}
-              src="./src/assets/2.png"
+              src="./assets/2.png"
               alt="Warkraft photo"
               className="game-avatar"
             />
@@ -112,7 +112,7 @@ export const ProfileUser =({img,country , username, nickname, email}: ProfileUse
           <li>
             <img
               width={100}
-              src="./src/assets/3.jpeg"
+              src="./assets/3.jpeg"
               alt="Warkraft photo"
               className="game-avatar"
             />
@@ -156,7 +156,7 @@ export const ProfileUser =({img,country , username, nickname, email}: ProfileUse
             <li>
               <img
                 width={100}
-                src="./src/assets/User234.jpeg"
+                src="./assets/User234.jpeg"
                 alt="avatar-photo"
                 className="friends"
               />
@@ -166,7 +166,7 @@ export const ProfileUser =({img,country , username, nickname, email}: ProfileUse
             <li>
               <img
                 width={100}
-                src="./src/assets/Andriy.jpeg"
+                src="./assets/Andriy.jpeg"
                 alt="avatar-photo"
                 className="friends"
               />
