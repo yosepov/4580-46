@@ -15,7 +15,7 @@ const NavBar = () => {
         <NavButton text={"About"} />
       </div>
       <div className="navAvatar">
-        <img className="img" src="/avatar.jpg" alt="avatar" />
+        <img onClick={() => '/userprofile'} className="img" src="/avatar.jpg" alt="avatar" />
         <NavButton text={"Sign In"} />
       </div>
     </div>

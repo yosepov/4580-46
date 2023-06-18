@@ -1,0 +1,11 @@
+.SignupMsg {
+    display: block;
+    margin: 25px auto;
+    color: #DDE6ED;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.SignupMsg:hover {
+    font-style: italic;
+}
