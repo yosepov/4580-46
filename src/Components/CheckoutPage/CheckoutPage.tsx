@@ -11,7 +11,7 @@ const CheckoutPage = () => {
         <div className="title">
           <h1>Checkout</h1>
         </div>
-        <div className="products">sdfsdf</div>
+        <div className="products">sdfsdddf</div>
         <div className="details">
           <Amount />
         </div>
