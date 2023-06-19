@@ -13,10 +13,11 @@ const Amount = () => {
 
   return (
     <>
-      <h1>quantity:</h1>
+    <div>
       <RemoveIcon onClick={decreaseAmount} style={{ fontSize: "small" }} />
       <span className="amount">{amount}</span>
       <AddIcon onClick={increaseAmount} style={{ fontSize: "small" }} />
+    </div>
     </>
   );
 };

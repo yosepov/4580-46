@@ -28,6 +28,7 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     grid-area: details;
 }
 
@@ -40,4 +41,53 @@ h1 {
 
 .title {
     grid-area: header;
+}
+
+.CC {
+    background-image: linear-gradient(to bottom right, #00d2ff, #3a7bd5);
+    width: 400px;
+    height: 225px;
+    border-radius: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.bankTitle {
+    margin: 5px 15px;
+    font-size: 30px;
+    float: right;
+    font-weight: bold;
+}
+
+.cardImgs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 25%;
+}
+
+.cardChip img {
+    width: 100px;
+}
+
+.cardWifi {
+    transform: rotate(90deg);
+    padding: 30px;
+}
+
+.cardNum {
+    text-align: center;
+}
+
+.cardNum span {
+    font-size:25px;
+    word-spacing: 25px;
+}
+
+.moreInfo {
+    margin: 10px auto;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
 }

@@ -1,6 +1,8 @@
 import React from "react";
 import "./CheckoutPage.css";
 import Amount from "./Amount";
+import Payment from "./Payment";
+import BasicModal from "./Payment";
 
 interface ProductsProps {}
 
@@ -13,6 +15,7 @@ const CheckoutPage = () => {
         </div>
         <div className="products">sdfsdddf</div>
         <div className="details">
+          <BasicModal />
           <Amount />
         </div>
       </div>
