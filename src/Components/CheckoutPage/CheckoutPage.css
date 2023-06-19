@@ -1,0 +1,44 @@
+.checkoutContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #DDE6ED;
+    padding: 50px;
+}
+
+.checkoutBox {
+    background-color: #031220;
+    width: 1200px;
+    height: fit-content;
+    border-radius: 14px;
+    text-align: center;
+    display: grid;
+    grid-template-areas: "header header"
+    "items details"
+    "items details";
+}
+
+h1 {
+    color: #DDE6ED;
+}
+
+.details {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    grid-area: details;
+}
+
+
+.products{
+    background-color: white;
+    width: 500px;
+    grid-area: items;
+}
+
+.title {
+    grid-area: header;
+}
