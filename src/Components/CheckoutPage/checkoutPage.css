@@ -1,0 +1,23 @@
+.containerBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.formContainer{
+    text-align: center;
+    color: #DDE6ED;
+    height: 800px;
+    width: 700px;
+    border: 2px solid #DDE6ED;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 1px 1px 8px #DDE6ED;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+
+}
