@@ -1,12 +1,11 @@
 import React from 'react';
-import { SigninPage } from './Components/Signin/Signin';
-import NavBar from './Components/NavBar/NavBar';
+import AppRouter from './routes';
 
-export const  App = () => {
+
+export const  App: React.FC = () => {
   return (
     <>
-    <NavBar />
-  <SigninPage />
+      <AppRouter />
     </>
   );
 }

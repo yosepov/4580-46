@@ -1,0 +1,92 @@
+.cardContainer {
+    width: 150px;
+    height: 280px;
+    border: 1px solid #DDE6ED;
+    border-radius: 10px;
+    color: #DDE6ED;
+    box-shadow: 1px 1px 8px #DDE6ED;
+    margin: 50px;
+}
+
+.gameImg {
+    height: 90px;
+}
+
+.gameImage {
+    width: 150px;
+    height: 90px;
+    border-radius: 10px;
+    border: 1px solid #DDE6ED;
+}
+
+.genres {
+    text-align: center;
+    font-size: 10px;
+}
+
+.description {
+    font-size: 13px;
+    overflow: auto;
+    scrollbar-width: thin;
+    max-height: 40px;
+    margin: 5px;
+    text-align: center;
+}
+
+.description::-webkit-scrollbar {
+    width: 8px;
+    background-color: transparent;
+}
+
+.price {
+    text-align: center;
+    margin: 20px 0 5px 0;
+}
+
+.gameReview {
+    height: 30px;
+    text-align: center;
+}
+
+.reviewP {
+    font-size: 8px;
+    margin: 3px 0;
+}
+
+.review {
+    background-color: #cbf078;
+    border-radius: 8px;
+    border: none;
+    width: 40px;
+    height: 20px;
+    font-weight: bold;
+}
+
+.cartContainer {
+    text-align: center;
+}
+
+.cartButton {
+    text-align: center;
+    margin: 5px 0;
+    border-radius: 8px;
+    background-color: transparent;
+    border: 1px solid #DDE6ED;
+    cursor: pointer;
+    color: #DDE6ED;
+
+}
+
+.cartButton:hover {
+    text-align: center;
+    margin: 5px 0;
+    border-radius: 8px;
+    background-color: #DDE6ED;
+    border: 1px solid #DDE6ED;
+    cursor: pointer;
+    color: #041C32;
+
+}
+
+
+
