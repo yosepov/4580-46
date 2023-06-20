@@ -1,0 +1,61 @@
+.checkoutContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.checkoutBox {
+    height: 900px;
+    width: 700px;
+    border: 2px solid #DDE6ED;
+    text-align: center;
+    box-shadow: 1px 1px 8px #DDE6ED;
+}
+
+.form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.input{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: none;
+    text-align: center;
+    box-shadow: 1px 1px 8px #DDE6ED;
+    background-color: #DDE6ED;
+}
+
+.checkoutTitle{
+    color: #DDE6ED;
+}
+
+.imageBox{
+    display: flex;
+    justify-content: center;
+}
+
+.image{
+    opacity: 80%;
+
+}
+
+.videoBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 800px;
+    width: 100%;
+}
+.video{
+    border: 2px solid #DDE6ED;
+    border-radius: 20px;
+    box-shadow: 1px 1px 8px #DDE6ED;
+    width: 300px;
+    height: 200px;
+}
