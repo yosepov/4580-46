@@ -1,0 +1,171 @@
+.form-container {
+  position: relative;
+  margin: 20px;
+
+}
+
+
+.text-field-container {
+  background-color: rgba(255, 255, 255, 0.851);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 80px;
+  padding: 10px;
+  width: 400px;
+  height: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 20px white; 
+
+}
+
+
+
+
+.text-field-container > div {
+  width: 100%;
+  height: 100%;
+}
+
+
+
+.text-field-basic_Download {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 80px;
+  padding: 10px;
+  width: 400px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 20px white; 
+
+  
+
+}
+
+.text-field-basic_Download > div {
+  width: 100%;
+
+
+}
+
+
+
+
+
+
+
+
+#standard-basic,#multiple-limit-tags, .text-field-basic_Download  {
+  background-color: rgba(255, 255, 255, 0.851);
+
+}
+
+
+
+
+
+
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  color: rgba(255, 255, 255, 0.851);
+  font-size: medium; 
+
+
+}
+
+
+
+#stepper {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  width: 600px; 
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  top: unset; 
+  bottom: 20px; 
+  transform: translateX(-50%);
+  
+}
+
+.button-container button {
+  margin-right: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  color: white;
+  background-color: #161515;
+  opacity: 1;
+  padding: 20px;
+  text-align: center;
+
+}
+
+.modal-content p {
+  margin-bottom: 10px;
+}
+
+.modal-content button {
+  padding: 10px 20px;
+  background-color:rgba(255, 255, 255, 0.851);
+}
+
+
+
+
+
+
+.custom-stepper .MuiStepIcon-root {
+  color:rgba(255, 255, 255, 0.851);
+}
+
