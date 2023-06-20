@@ -59,3 +59,17 @@
     width: 300px;
     height: 200px;
 }
+
+.submitBtn{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: none;
+    text-align: center;
+    box-shadow: 1px 1px 8px #DDE6ED;
+    background-color: #DDE6ED;
+}
+
+.submitBtn:hover{
+    background-color: black;
+    color: #DDE6ED;
+}

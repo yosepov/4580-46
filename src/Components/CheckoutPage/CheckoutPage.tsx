@@ -28,7 +28,7 @@ export const CheckoutPage = ({Products}: CheckoutPageProps) => {
                     <form className='form' action="">
                       <input required className='input' type="text" placeholder='Enter Namegame...' maxLength={15} />
                       <input required className='input' type="number" placeholder='Enter amount...' min={1} />
-                      <button type='submit'>Buy Now</button>
+                      <button className='submitBtn' type='submit'>Buy Now</button>
                     </form>
             <div className='videoBox'>
               <iframe className='video' src="https://www.youtube.com/embed/ASzOzrB-a9E" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
