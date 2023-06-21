@@ -11,6 +11,7 @@ import {Signup} from "./Components/signUp/SignUp";
 import { Routes, Route } from "react-router-dom";
 import {ForgotPassword} from './ForgotPassword/ForgotPassword';
 import { ErrorPage} from './ErrorPage/ErrorPage'
+
 export const App = () => {
   return (
 

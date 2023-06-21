@@ -15,7 +15,7 @@ import {Link} from "react-router-dom"
 
 
 
-const lightTheme = createTheme({
+const DarkTheme = createTheme({
   palette: {
     mode: 'dark',
     
@@ -28,7 +28,7 @@ export const  Signin = () => {
   return (
    
     <Container component="main" maxWidth="sm" >
-       <ThemeProvider theme={lightTheme}>
+       <ThemeProvider theme={DarkTheme}>
        <CssBaseline />
       <Box
       

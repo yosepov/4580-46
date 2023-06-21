@@ -7,7 +7,7 @@ import Container from "@mui/material/Container";
 import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
 import { Link } from 'react-router-dom'
 
-const lightTheme = createTheme({
+const DarkTheme = createTheme({
   palette: {
     mode: 'dark',
   },
@@ -18,7 +18,7 @@ export const ForgotPassword = () => {
 
   return (
     <Container component="main" maxWidth="sm" >
-       <ThemeProvider theme={lightTheme}>
+       <ThemeProvider theme={DarkTheme}>
        <CssBaseline />
       <Box
         sx={{
