@@ -15,6 +15,9 @@
   display: flex;
   justify-content: right;
   align-items: center;
+  border: 2px solid #dde6ed;
+  border-radius: 10px;
+  width: 200px;
 }
 
 .navButtons {
@@ -33,6 +36,7 @@
   margin-top: 20px;
 }
 
+
 span {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   text-transform: uppercase;
@@ -41,4 +45,20 @@ span {
 
 .logoHeader {
   font-size: 3rem;
+  animation: CoolAnimation 5s infinite alternate;
+}
+
+@keyframes CoolAnimation {
+    0%{
+        color: black;
+    }
+    100%{
+        /* background-color: black; */
+        color: #dde6ed;
+    }
+}
+
+.gameIcon{
+    margin: 15px;
+
 }

@@ -1,11 +1,64 @@
 .SignupMsg {
     display: block;
     margin: 25px auto;
-    color: #DDE6ED;
+    color: #DDE6ED; 
     font-weight: 400;
     cursor: pointer;
+    border-radius: 10px;
+    width: 200px;
+    /* border: 8px solid red; */
+    /* background-color: #DDE6ED; */
+    /* animation: animation 2s infinite alternate; */
 }
 
 .SignupMsg:hover {
-    font-style: italic;
+    /* font-style: italic; */
+    /* background-image: linear-gradient(45deg,black,darkgray, gray, black); */
+    /* width: 300px; */
+    /* color: #041C32; */
+    /* width: 100%; */
+    animation: animation1 4s infinite alternate;
+}
+
+@keyframes animation1 {
+    0%{
+        background-image: linear-gradient(45deg,black,darkgray, gray);
+        border: 2px solid #DDE6ED;
+    }
+    10%{
+        background-image: linear-gradient(45deg,gray,black,darkgray);
+    }
+    20%{
+        background-image: linear-gradient(45deg,darkgray,gray,black,);   
+    }
+    30%{
+        background-image: linear-gradient(45deg,black,darkgray, gray);
+        border: 2px solid black;
+        transform: scale(1.1);
+    }
+    40%{
+        background-image: linear-gradient(45deg,gray,black,darkgray);
+    }
+    50%{
+        background-image: linear-gradient(45deg,darkgray,gray,black,);   
+    }
+    60%{
+        background-image: linear-gradient(45deg,black,darkgray, gray);
+        border: 2px solid #DDE6ED;
+        transform: scale(0.9);
+    }
+    70%{
+        background-image: linear-gradient(45deg,gray,black,darkgray);
+    }
+    80%{
+        background-image: linear-gradient(45deg,darkgray,gray,black,);   
+    }
+    90%{
+        background-image: linear-gradient(45deg,black,darkgray, gray);
+        border: 2px solid black;
+        transform: scale(1.1);
+    }
+    100%{
+        background-image: linear-gradient(45deg,gray,black,darkgray);
+    }
 }
