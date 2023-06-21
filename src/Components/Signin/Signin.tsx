@@ -22,6 +22,7 @@ export const SigninPage: React.FC<SigninPageProps> = ({ handleSigninToggle }) =>
   const handleIsSignin = () => {
     setIsSignin(!isSignin);
   };
+  
 
   return (
     <div className={`signinContainer ${isClosed ? 'close' : ''}`}>

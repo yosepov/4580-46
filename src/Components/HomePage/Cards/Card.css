@@ -8,20 +8,10 @@
     height: 200px;
     position: relative;
     margin-top: 35%;
-    /* margin-left: 40 */
     perspective: 1000px;
     transform-style: preserve-3d;
-    /* transform: rotateX(-10deg) ; */
     animation: ror 20s linear infinite;
 }
-/* @keyframes ror{
-    50%{
-        transform: rotateX(5deg);
-    }
-    80%{
-        transform: rotateX(-5deg);
-    }
-} */
 .images{
     width: 100%;
     position: absolute;
@@ -55,7 +45,7 @@ img:nth-child(6){
     transform: rotateY(360deg) translateZ(400px);
 }
 img:hover{
-    scale: 1.1;
+    scale: 1.01;
 }
 @media(max-width: 992px){
     .container img{
