@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
+import "./CheckoutPage.css";
 
 const Amount = () => {
   const [amount, setAmount] = useState(1);
@@ -13,7 +14,7 @@ const Amount = () => {
 
   return (
     <>
-    <div>
+    <div className="amountContainer">
       <RemoveIcon onClick={decreaseAmount} style={{ fontSize: "small" }} />
       <span className="amount">{amount}</span>
       <AddIcon onClick={increaseAmount} style={{ fontSize: "small" }} />

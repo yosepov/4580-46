@@ -1,0 +1,79 @@
+.gridContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.paymentContainer {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    padding: 15px;
+    align-items: center;
+    column-gap: 70px;
+}
+
+.CC {
+    grid-area: 2 / 1 / 2 / 2;
+    background-image: linear-gradient(to bottom right, #175096, #209bd8);
+    max-width: 333px;
+    height: 200px;
+    border-radius: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.bankTitle {
+    margin: 5px 10px;
+    font-size: 30px;
+    float: right;
+    font-weight: bold;
+}
+
+.cardImgs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 25%;
+}
+
+.cardChip img {
+    width: 100px;
+}
+
+.cardContactless {
+    transform: rotate(90deg);
+    padding: 20px;
+    transform: scale(0.5)
+}
+
+.cardDetails {
+    margin: 15px auto;
+}
+
+.cardNumSpan {
+    text-align: center;
+    font-size:25px;
+    word-spacing: 20px;
+}
+
+.moreInfo {
+    text-align: center;
+    margin: 5px auto;
+    display: flex;
+    justify-content: space-around;
+    text-transform: uppercase;
+}
+
+.inputsContainer {
+    grid-area: 2 / 2 / 2 / 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ccBtn {
+    width: 200px;
+}

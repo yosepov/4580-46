@@ -1,3 +1,28 @@
+::-webkit-scrollbar {
+    width: 5px;
+    height:9px;
+    background-color:transparent;
+}
+     
+::-webkit-scrollbar-corner {
+    padding:2px;
+    background-color:transparent;
+}
+     
+::-webkit-scrollbar-button:vertical {
+    height:2px;
+    display: block;
+    background-color:transparent;
+}
+     
+::-webkit-scrollbar-thumb:vertical {
+    background-color:#DDE6ED;
+}
+     
+::-webkit-scrollbar-thumb {
+    background-color:#DDE6ED;
+}
+
 .checkoutContainer{
     display: flex;
     justify-content: center;
@@ -9,85 +34,40 @@
 .checkoutBox {
     background-color: #031220;
     width: 1200px;
-    height: fit-content;
+    height: 670px;
     border-radius: 14px;
     text-align: center;
     display: grid;
-    grid-template-areas: "header header"
-    "items details"
-    "items details";
+    grid-template-columns: 75% 26%;
+    grid-template-rows: 10% 90%;
 }
 
 h1 {
     color: #DDE6ED;
-}
-
-.details {
-    width: 100px;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    grid-area: details;
-}
-
-
-.products{
-    background-color: white;
-    width: 750px;
-    grid-area: items;
+    letter-spacing: 7px;
 }
 
 .title {
-    grid-area: header;
+    grid-area: 1 / 1 / 2 / 3;
 }
 
-.CC {
-    background-image: linear-gradient(to bottom right, #00d2ff, #3a7bd5);
-    width: 400px;
-    height: 225px;
-    border-radius: 20px;
-    color: white;
+.mainBox{
+    grid-area: 2 / 1 / 3 / 2;
+    overflow-y: scroll;
+}
+
+.details {
     display: flex;
-    flex-direction: column;
-}
-
-.bankTitle {
-    margin: 5px 15px;
-    font-size: 30px;
-    float: right;
-    font-weight: bold;
-}
-
-.cardImgs {
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    height: 25%;
+    justify-content: center;
+    flex-direction: column;
+    grid-area: 2 / 2 / 3 / 3;
 }
 
-.cardChip img {
-    width: 100px;
+.amountContainer {
+    display: inline-block;
 }
 
-.cardWifi {
-    transform: rotate(90deg);
-    padding: 30px;
-}
-
-.cardNum {
-    text-align: center;
-}
-
-.cardNum span {
-    font-size:25px;
-    word-spacing: 25px;
-}
-
-.moreInfo {
-    margin: 10px auto;
-    text-align: center;
-    display: flex;
-    justify-content: space-around;
+.amount {
+    font-size: 22px;
 }

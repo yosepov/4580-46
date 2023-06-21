@@ -1,0 +1,53 @@
+.detailsContainer {
+    /* padding: 0 10px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+}
+
+.adressInfo, .paymentInfo, .checkoutInfo {
+    padding: 0 25px;
+    text-align: left;
+    text-transform: capitalize;
+}
+
+.copun {
+    padding: 0 25px;
+    text-align: left;
+}
+
+.adressInfo p, .paymentInfo p, .copun p, .checkoutInfo p{
+    margin-top: -20px;
+    margin-bottom: 20px;
+}
+
+.adressInfo{
+    display: flex;
+    justify-content: space-between;
+}
+
+.paymentInfo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.paymentBtn, .adressBtn {
+    /* margin-left: auto; */
+    padding: 25px;
+    width: 25px;
+    height: 25px;
+}
+
+.CopunBtn {
+    margin-top: -17px;
+    /* margin: 10px auto; */
+}
+
+.confirmBtn{
+    width: 140px;
+    margin: 0 auto;
+}
+
+.totalPrice {
+    font-weight: bold;
+}
