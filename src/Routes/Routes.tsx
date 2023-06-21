@@ -7,6 +7,7 @@ import { HomePage } from '../Components/Home/HomePage';
 import { AboutPage } from '../Components/About/AboutPage';
 import { StorePage } from '../Components/Store/StorePage';
 import { FavoritesPage } from '../Components/Favorites/FavoritesPage';
+import CheckoutPage from '../Components/CheckoutPage/CheckoutPage';
 
 
 export const router = createBrowserRouter([
@@ -57,6 +58,7 @@ export const router = createBrowserRouter([
             {
                 path: '/checkout',
                 element: <>
+                <CheckoutPage />
                 </>
             },
         ]
