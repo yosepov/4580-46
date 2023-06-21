@@ -19,6 +19,7 @@ export const SigninPage = () => {
             return []
         }
     }
+
     const getCurrentUser = () => {
         const user = localStorage.getItem('currentUser');
         if (user) {
@@ -28,15 +29,31 @@ export const SigninPage = () => {
         }
     }
 
-    const createNewUser = (user: UserType) => {
-        const users = getAllUsers();
-        users.push(user);
-        const usersStr = JSON.stringify(users)
-        const userStr = JSON.stringify(user);
-        localStorage.setItem('users', usersStr)
+    const setCurrentUser = (user: UserType) => {
+        const userStr = JSON.stringify(user)
         localStorage.setItem('currentUser', userStr)
     }
 
+    const logoutUser = () => {
+        localStorage.setItem('currentUser', 'null')
+    }
+
+    const setUsers = (users: UserType[]) => {
+        const usersStr = JSON.stringify(users)
+        localStorage.setItem('users', usersStr)
+    }
+
+    const updateUsers = (user: UserType) => {
+        const users = getAllUsers();
+        users.push(user);
+        return users;
+    }
+
+    const createNewUser = (user: UserType) => {
+        const users = updateUsers(user);
+        setUsers(users);
+        setCurrentUser(user);
+    }
 
     const handleIsSignin = () => {
         setIsSignin(!isSignin);
@@ -55,16 +72,17 @@ export const SigninPage = () => {
     }
 
     const checkUserLogin = (users: UserType[]) => {
-        for(const user of users){
-            if(user.username === username && user.password === password){
+        for (const user of users) {
+            if (user.username === username && user.password === password) {
                 return true
             }
         }
         return false
     }
+
     const checkUserSignup = (users: UserType[]) => {
-        for(const user of users){
-            if(user.username === username ){
+        for (const user of users) {
+            if (user.username === username) {
                 return false
             }
         }
@@ -75,19 +93,21 @@ export const SigninPage = () => {
         const users = getAllUsers()
         if (isSignin) {
             const isOkay = checkUserLogin(users);
-            if(isOkay){
+            if (isOkay) {
+                const newUser = { username, password }
+                setCurrentUser(newUser)
                 alert('Signedin!')
-            }else{
+            } else {
                 alert('Incorrect username or password')
             }
         } else {
             if (password === rePassword) {
                 const isOkay = checkUserSignup(users);
-                if(isOkay){
-                    const newUser = {username, password} as UserType
+                if (isOkay) {
+                    const newUser = { username, password } as UserType
                     createNewUser(newUser);
                     alert('User created succesfully!')
-                }else{
+                } else {
                     alert('User already exists!')
                 }
             } else {
