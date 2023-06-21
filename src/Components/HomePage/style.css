@@ -1,0 +1,16 @@
+body {
+    height: 100vh;
+    background-color: #000;
+    background-image: url("https://img.freepik.com/free-photo/empty-dark-room-modern-futuristic-sci-fi-background-3d-illustration_35913-2389.jpg?w=1060&t=st=1687217757~exp=1687218357~hmac=cd7f406c95b920ace99713f60c5b05ab5daf7f6bd9c432900056bc9e8d101edc");
+background-size: cover;
+background-position: center;
+}
+*{
+    margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+.homePage{
+    display: flex;
+    flex-direction: column;
+}
