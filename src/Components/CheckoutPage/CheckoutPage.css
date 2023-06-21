@@ -1,0 +1,73 @@
+::-webkit-scrollbar {
+    width: 5px;
+    height:9px;
+    background-color:transparent;
+}
+     
+::-webkit-scrollbar-corner {
+    padding:2px;
+    background-color:transparent;
+}
+     
+::-webkit-scrollbar-button:vertical {
+    height:2px;
+    display: block;
+    background-color:transparent;
+}
+     
+::-webkit-scrollbar-thumb:vertical {
+    background-color:#DDE6ED;
+}
+     
+::-webkit-scrollbar-thumb {
+    background-color:#DDE6ED;
+}
+
+.checkoutContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #DDE6ED;
+    padding: 50px;
+}
+
+.checkoutBox {
+    background-color: #031220;
+    width: 1200px;
+    height: 670px;
+    border-radius: 14px;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 75% 26%;
+    grid-template-rows: 10% 90%;
+}
+
+h1 {
+    color: #DDE6ED;
+    letter-spacing: 7px;
+}
+
+.title {
+    grid-area: 1 / 1 / 2 / 3;
+}
+
+.mainBox{
+    grid-area: 2 / 1 / 3 / 2;
+    overflow-y: scroll;
+}
+
+.details {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    grid-area: 2 / 2 / 3 / 3;
+}
+
+.amountContainer {
+    display: inline-block;
+}
+
+.amount {
+    font-size: 22px;
+}

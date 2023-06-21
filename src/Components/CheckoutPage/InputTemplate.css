@@ -1,0 +1,56 @@
+.inputContainer {
+    position: relative;
+    padding: 20px 0 0;
+    width: 100%;
+    max-width: 180px;
+}
+  
+.inputEl {
+    font-family: inherit;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #DDE6ED;
+    outline: 0;
+    font-size: 17px;
+    color: #fff;
+    padding: 7px 0;
+    margin: 5px auto;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+  
+.inputEl::placeholder {
+    color: transparent;
+}
+  
+.inputEl:placeholder-shown ~ .inputLab {
+    font-size: 17px;
+    cursor: text;
+    top: 20px;
+}
+  
+.inputLab {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 17px;
+    color: #DDE6ED;
+    pointer-events: none;
+}
+  
+.inputEl:focus {
+    padding-bottom: 6px;
+    border-width: 1px;
+    border-image: linear-gradient(to right, #116399, #38caef);
+    border-image-slice: 1;
+}
+  
+.inputEl:focus ~ .inputLab {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 17px;
+    color: #38caef;
+}

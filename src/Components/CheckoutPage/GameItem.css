@@ -1,0 +1,34 @@
+.item {
+    margin: 20px 15px;
+    /* background-color: rgba(4, 28, 50, 0.5); */
+    border: 1px solid #DDE6ED;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.gameDetailsA {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.gamePic{
+    border-radius: 10px;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.gameDetailsB {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.gameDetailsB p{
+    margin: 5px auto;
+    font-size: 22px;
+}
