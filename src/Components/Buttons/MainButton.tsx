@@ -2,9 +2,10 @@ import React from 'react';
 import './mainButton.css'
 interface MainButtonProps {
     title: string;
+    handlOnClick: () => void;
 }
 
-export const MainButton = ({title}: MainButtonProps) => {
+export const MainButton = ({title, handlOnClick}: MainButtonProps) => {
 
-    return <button className='mainButton'>{title}</button>
+    return <button onClick={handlOnClick} className='mainButton'>{title}</button>
 }

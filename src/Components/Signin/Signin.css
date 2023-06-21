@@ -8,6 +8,7 @@
 .signBox {
     height: 500px;
     width: 400px;
+    background-color: #606060;
     border: 2px solid #DDE6ED;
     border-radius: 20px;
     text-align: center;
