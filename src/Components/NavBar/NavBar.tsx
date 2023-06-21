@@ -1,25 +1,39 @@
 import React from "react";
 import "./NavBar.css";
 import NavButton from "./NavbarButtons/NavbarButton";
+import { Link, Outlet } from "react-router-dom";
 
-const NavBar = () => {
+export const NavBar = () => {
   return (
     <div className="navContainer">
       <div className="navLogo">
-        <span className="logoHeader">Steal</span>
+        <Link to="/" className="noUnderline">
+          <span className="logoHeader">Steal</span>
+        </Link>
       </div>
       <div className="navButtons">
-        <NavButton text={"Store"} />
-        <NavButton text={"Library"} />
-        <NavButton text={"Favorites"} />
-        <NavButton text={"About"} />
+        <Link to="/StorePage">
+          <NavButton text={"Store"} />
+        </Link>
+        <Link to="/LibraryPage">
+          <NavButton text={"Library"} />
+        </Link>
+        <Link to="/FavoritesPage">
+          <NavButton text={"Favorites"} />
+        </Link>
+        <Link to="/AboutPage">
+          <NavButton text={"About"} />
+        </Link>
       </div>
       <div className="navAvatar">
-        <img onClick={() => '/userprofile'} className="img" src="/avatar.jpg" alt="avatar" />
-        <NavButton text={"Sign In"} />
+        <Link to="/ProfileUser">
+          <img className="img" src="/avatar.jpg" alt="avatar" />
+        </Link>
+        <Link to="/SigninPage">
+          <NavButton text={"Sign In"} />
+        </Link>
       </div>
+      <Outlet />
     </div>
   );
 };
-
-export default NavBar;

@@ -1,37 +1,26 @@
-
-import "./Signin.css";
-
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
-import {Link} from "react-router-dom"
-
-
+import { Link, } from 'react-router-dom'
 
 const lightTheme = createTheme({
   palette: {
     mode: 'dark',
-    
   },
 });
 
-export const  Signin = () => {
- 
+export const  Signup = () => {
+  
 
   return (
-   
     <Container component="main" maxWidth="sm" >
        <ThemeProvider theme={lightTheme}>
        <CssBaseline />
       <Box
-      
         sx={{
           boxShadow: 3,
           borderRadius: 2,
@@ -41,13 +30,22 @@ export const  Signin = () => {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          
         }}
       >
         <Typography component="h1" variant="h5">
-          Sign in
+          Sign up
         </Typography>
         <Box component="form"  noValidate sx={{ mt: 1 }}>
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="name"
+            label="Full Name"
+            name="name"
+            autoFocus
+            style={{color: 'white'}}
+          />
           <TextField
             margin="normal"
             required
@@ -56,8 +54,6 @@ export const  Signin = () => {
             label="Email Address"
             name="email"
             autoComplete="email"
-            autoFocus
-            style={{color: 'white'}}
           />
           <TextField
             margin="normal"
@@ -67,11 +63,17 @@ export const  Signin = () => {
             label="Password"
             type="password"
             id="password"
-            autoComplete="current-password"
+            autoComplete="new-password"
           />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            name="confirmPassword"
+            label="Confirm Password"
+            type="password"
+            id="confirmPassword"
+            autoComplete="new-password"
           />
           <Button
             type="submit"
@@ -79,24 +81,19 @@ export const  Signin = () => {
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
           >
-            Sign In
+            Sign Up
           </Button>
           <Grid container>
-            <Grid item xs>
-              <Link to="/ForgotPassword" >
-                Forgot password?
-              </Link>
-            </Grid>
             <Grid item>
-              <Link to="/SignupPage" >
-                {"Don't have an account? Sign Up"}
+              <Link to="/SigninPage">
+                {"Already have an account? Sign In"}
               </Link>
             </Grid>
           </Grid>
         </Box>
       </Box>
       </ThemeProvider>
+
     </Container>
-  
   );
 }

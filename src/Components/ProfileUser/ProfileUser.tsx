@@ -4,24 +4,19 @@ import "./profileUser.css";
 import { Likes } from "../Likes/Likes";
 import React from "react";
 
-
-
   interface ProfileUserProps {
     img: string;
     username: string;
     nickname: string;
     country: string;
     email: string;
-   
   }
 
-
-
-
 export const ProfileUser =({img,country , username, nickname, email}: ProfileUserProps) => {
-    
+    // destructurisation props
 
   return ( 
+    <>
     <div className="block-page">
       <div className="user-info">
         
@@ -50,7 +45,7 @@ export const ProfileUser =({img,country , username, nickname, email}: ProfileUse
             <img
               width={100}
               src="./assets/sims.jpeg"
-              alt="Warkraft photo"
+              alt="Sims 4 photo"
               className="game-avatar"
             />
            
@@ -64,7 +59,7 @@ export const ProfileUser =({img,country , username, nickname, email}: ProfileUse
             <img
               width={100}
               src="./assets/gta5.jpeg"
-              alt="Warkraft photo"
+              alt="GTA5 photo"
               className="game-avatar"
             />
             <p className="name-game">GTA 5</p>
@@ -177,6 +172,7 @@ export const ProfileUser =({img,country , username, nickname, email}: ProfileUse
         </div>
       </div>
     </div>
+    </>
   );
 }
 

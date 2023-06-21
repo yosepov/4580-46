@@ -41,4 +41,11 @@ span {
 
 .logoHeader {
   font-size: 3rem;
+  text-decoration: none;
+  color:#dde6ed ;
+  
+}
+
+.noUnderline{
+  text-decoration:none!important;
 }
