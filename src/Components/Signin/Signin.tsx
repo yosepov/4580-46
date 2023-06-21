@@ -29,13 +29,14 @@ export const SigninPage = () => {
         }
     }
 
-    const setCurrentUser = (user: UserType) => {
-        const userStr = JSON.stringify(user)
-        localStorage.setItem('currentUser', userStr)
-    }
 
     const logoutUser = () => {
         localStorage.setItem('currentUser', 'null')
+    }
+
+    const setCurrentUser = (user: UserType) => {
+        const userStr = JSON.stringify(user)
+        localStorage.setItem('currentUser', userStr)
     }
 
     const setUsers = (users: UserType[]) => {
@@ -94,7 +95,7 @@ export const SigninPage = () => {
         if (isSignin) {
             const isOkay = checkUserLogin(users);
             if (isOkay) {
-                const newUser = { username, password }
+                const newUser = { username, password } as UserType
                 setCurrentUser(newUser)
                 alert('Signedin!')
             } else {
