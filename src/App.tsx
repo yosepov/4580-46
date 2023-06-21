@@ -1,12 +1,7 @@
 import React from 'react';
-import { SigninPage } from './Components/Signin/Signin';
-import NavBar from './Components/NavBar/NavBar';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './Routes/Routes';
 
-export const  App = () => {
-  return (
-    <>
-    <NavBar />
-  <SigninPage />
-    </>
-  );
+export const  App = () => {  
+    return <RouterProvider router={router} />
 }

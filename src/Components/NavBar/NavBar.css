@@ -11,6 +11,9 @@
   overflow: hidden;
 }
 
+.links{
+    margin: 0px 25px;
+}
 .navAvatar {
   display: flex;
   justify-content: right;
