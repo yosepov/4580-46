@@ -5,7 +5,7 @@
     justify-content: baseline;
 }
 
-.adressInfo, .paymentInfo, .checkoutInfo {
+.addressInfo, .paymentInfo, .checkoutInfo {
     padding: 0 25px;
     text-align: left;
     text-transform: capitalize;
@@ -16,12 +16,12 @@
     text-align: left;
 }
 
-.adressInfo p, .paymentInfo p, .copun p, .checkoutInfo p{
+.addressInfo p, .paymentInfo p, .copun p, .checkoutInfo p{
     margin-top: -20px;
     margin-bottom: 20px;
 }
 
-.adressInfo{
+.addressInfo{
     display: flex;
     justify-content: space-between;
 }
@@ -31,7 +31,7 @@
     justify-content: space-between;
 }
 
-.paymentBtn, .adressBtn {
+.paymentBtn, .addressBtn {
     /* margin-left: auto; */
     padding: 25px;
     width: 25px;

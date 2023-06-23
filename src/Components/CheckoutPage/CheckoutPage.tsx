@@ -5,17 +5,19 @@ import Button from "@mui/material/Button";
 import PaymentForm, { CardData } from "./PaymentForm";
 import Details from "./Details";
 import GameItem from "./GameItem";
-import AdressForm from "./AdressForm";
+import AddressForm from "./AddressForm";
 
 const CheckoutPage = () => {
-  const [payment, setPayment] = useState(false);
+  const [screen, setScreen] = useState<"address" | "payment" | "gamelist">(
+    "gamelist"
+  );
+
   const handlePayment = () => {
-    setPayment(!payment);
+    screen === "payment" ? setScreen("gamelist") : setScreen("payment");
   };
 
-  const [adress, setAdress] = useState(false);
-  const handleAdress = () => {
-    setAdress(!adress);
+  const handleAddress = () => {
+    screen === "address" ? setScreen("gamelist") : setScreen("address");
   };
 
   const [cardData, setCardData] = useState<CardData>();
@@ -23,7 +25,7 @@ const CheckoutPage = () => {
     console.log(cardData);
   }, [cardData]);
 
-  const [userAdress, setUserAdress] = useState({
+  const [userAddress, setUserAddress] = useState({
     firstName: "",
     lastName: "",
     street: "",
@@ -78,32 +80,35 @@ const CheckoutPage = () => {
           <h1>Checkout</h1>
         </div>
         <div className="mainBox">
-          {payment ? (
+          {screen === "payment" && (
             <PaymentForm handleSubmit={(data) => setCardData(data)} />
-          ) : adress ? (
-            <AdressForm updateUserAdress={setUserAdress} />
-          ) : (
+          )}
+          {screen === "address" && (
+            <AddressForm updateUserAddress={setUserAddress} />
+          )}
+          {screen === "gamelist" &&
             gamesArr.map((g) => (
-              <GameItem key={g.id}
+              <GameItem
+                key={g.id}
                 gameName={g.gameName}
                 gamePrice={g.gamePrice}
                 gameImg={g.gameImg}
                 gameDesc={g.gameDesc}
               />
-            ))
-          )}
+            ))}
         </div>
         <div className="details">
           <Details
+            screen={screen}
             cardData={cardData}
-            adressF={handleAdress}
+            addressF={handleAddress}
             payment={handlePayment}
-            name={userAdress.firstName + userAdress.lastName}
-            adress={{
-              street: userAdress.street,
-              city: userAdress.city,
-              country: userAdress.country,
-              zipcode: userAdress.zipcode,
+            name={userAddress.firstName + userAddress.lastName}
+            address={{
+              street: userAddress.street,
+              city: userAddress.city,
+              country: userAddress.country,
+              zipcode: userAddress.zipcode,
             }}
             price={70}
           />

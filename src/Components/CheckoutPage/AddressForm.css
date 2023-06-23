@@ -1,4 +1,4 @@
-.adressContainer {
+.addressContainer {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -6,11 +6,11 @@
     align-items: center;
 }
 
-.adressFContainer {
+.addressFContainer {
     display: flex;
     gap: 30px;
 }
 
-.adressFormBtn {
+.addressFormBtn {
     margin: 8px auto;
 }
