@@ -6,6 +6,7 @@ import { InputText } from '../Form/Input/InputText';
 import { MainButton } from '../Buttons/MainButton';
 import { SignupMsg } from '../Signin/SignupMsg';
 import { UserType } from '../../Types/UserType';
+import { ErrorMessage } from '../Form/Errors/ErrorMessage';
 
 // Create Signin component (visual component - thats why it ends with tsx)
 export const SigninPage = () => {
@@ -16,6 +17,10 @@ export const SigninPage = () => {
     const [username, setUsername] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [rePassword, setRePassword] = useState<string>("");
+    const [usernameError, setUsernameError] = useState<string>("");
+    const [passwordError, setPasswordError] = useState<string>("");
+    const [rePasswordError, setRePasswordError] = useState<string>("");
+    const [signinError, setSigninError] = useState<string>("");
 
     // getAllUser which brings me the users array from localStorage
     const getAllUsers = () => {
@@ -203,9 +208,13 @@ export const SigninPage = () => {
                 {/* call InputText component and send it handleOnChange placeholder and type props*/}
                 
                 <InputText handleOnChange={handleUsername} placeholder='username' type='text' />
+                <ErrorMessage errorMsg={usernameError} />
                 <InputText handleOnChange={handlePassword} placeholder='password' type='password' />
+                <ErrorMessage errorMsg={passwordError} />
                 {/* we render another InputText compnent that depends on isSignin value */}
                 {!isSignin && <InputText handleOnChange={handleRePassword} placeholder='repassword' type='password' />}
+                <ErrorMessage errorMsg={rePasswordError} />
+                <ErrorMessage errorMsg={signinError} />
                 {/* we render the MainButton custom component that gets 2 props, and the title depends on isSinin value */}
                 <MainButton handlOnClick={handleSigninUser} title={isSignin ? "Signin" : "Signup"} />
                 {/* we render the SignupMsg with 2 props, that the text has a dependency on isSignin value */}
