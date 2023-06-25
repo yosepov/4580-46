@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./NavBar.css";
 import NavButton from "./NavbarButtons/NavbarButton";
 import { useNavigate } from 'react-router-dom';
@@ -16,6 +16,13 @@ const NavBar = () => {
     }
     const user = getCurrentUser();
 
+    useEffect(() => {
+        if(user && window.location.pathname === '/'){
+            navigate('/home')
+        }else if(!user && window.location.pathname === '/'){
+            navigate('/signin')
+        }
+    })
 
     return (
         <div className="navContainer">

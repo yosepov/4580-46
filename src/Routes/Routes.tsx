@@ -16,6 +16,7 @@ export const router = createBrowserRouter([
         element: <>
             <NavBar />
             <Outlet />
+            
         </>,
         errorElement: <Error404 />,
         children: [
