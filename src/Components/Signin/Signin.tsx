@@ -1,5 +1,6 @@
 // we first of all, import libraries
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 // only then we import components from our repository
 import './Signin.css'
 import { InputText } from '../Form/Input/InputText';
@@ -21,6 +22,8 @@ export const SigninPage = () => {
     const [passwordError, setPasswordError] = useState<string>("");
     const [rePasswordError, setRePasswordError] = useState<string>("");
     const [signinError, setSigninError] = useState<string>("");
+
+    const navigate = useNavigate()
 
     // getAllUser which brings me the users array from localStorage
     const getAllUsers = () => {
@@ -96,24 +99,49 @@ export const SigninPage = () => {
     const handleIsSignin = () => {
         // we call setIsSignin and set the opposite of isSignin value
         setIsSignin(!isSignin);
+        setUsernameError("")
+        setPasswordError("")
+        setRePasswordError("")
+        setSigninError("")
     }
 
     // handleUsername get's one arg called value and set it to username state
     const handleUsername = (value: string) => {
         // we call setUsername and assign to it the value we get from the input
         setUsername(value);
+        if (value === "") {
+            setUsernameError("username is required")
+        } else  if (value.length < 6 || value.length > 12) {
+            setUsernameError("username must be between 6 to 12 letters")
+        }else {
+            setUsernameError("")
+        }
     }
 
     // handlePassword that gets value and set it to the password state
     const handlePassword = (value: string) => {
         // we get the value, send it to the setPassword hook and update "password" state
         setPassword(value)
+        if (value === "") {
+            setPasswordError("password is required")
+        } else if (value.length < 6 || value.length > 12) {
+            setPasswordError("password must be between 6 to 12")
+        } else {
+            setPasswordError("")
+        }
     }
 
     // handleRePassword that gets value and set it to the password state
     const handleRePassword = (value: string) => {
         // we get the value, send it to the setRePassword hook and update "rePassword" state
         setRePassword(value)
+        if (value === "") {
+            setRePasswordError("re-password is required")
+        }else if (value.length < 6 || value.length > 12) {
+            setRePasswordError("password must be between 6 to 12")
+        } else {
+            setRePasswordError("")
+        }
     }
 
     // checkUserLogin gets users array, and check if any of the users
@@ -165,11 +193,11 @@ export const SigninPage = () => {
                 // setCurrentUser to localStorage
                 setCurrentUser(currentUser)
                 // alert that the user signed in successfully!
-                alert('Signedin!')
+                navigate('/home')
                 // if isOkay is false
             } else {
                 // alert 'Incorrect username or password'
-                alert('Incorrect username or password')
+                setSigninError('Incorrect username or password')
             }
             // if isSignin is false - it means the user trying to signup
         } else {
@@ -184,14 +212,14 @@ export const SigninPage = () => {
                     // we call createNewUser and send it the newUser
                     createNewUser(newUser);
                     // we alert 'User created succesfully!'
-                    alert('User created succesfully!')
+                    navigate('/home')
                 } else {
                     // if isOkay is false, it means the user already exists!
-                    alert('User already exists!')
+                    setSigninError('User already exists!')
                 }
             } else {
                 // if password and rePassword is not match, we alert the user
-                alert("Passwords not match")
+                setRePasswordError("Passwords not match")
             }
         }
     }
@@ -206,7 +234,7 @@ export const SigninPage = () => {
                 that depends on the value of isSignin*/}
                 <h1 className='signinTitle'>{isSignin ? "Signin" : "Signup"}</h1>
                 {/* call InputText component and send it handleOnChange placeholder and type props*/}
-                
+
                 <InputText handleOnChange={handleUsername} placeholder='username' type='text' />
                 <ErrorMessage errorMsg={usernameError} />
                 <InputText handleOnChange={handlePassword} placeholder='password' type='password' />
@@ -221,11 +249,11 @@ export const SigninPage = () => {
                 <SignupMsg
                     text={isSignin ? "Not a user yet? Click to SignUp!" : "already have an account? Signin!"}
                     handleOnClick={handleIsSignin} />
-            {/* we close the box!*/}
+                {/* we close the box!*/}
             </div>
             {/* we close the container!*/}
         </div>
     )
-// here we end the component
+    // here we end the component
 }
 // thanks
