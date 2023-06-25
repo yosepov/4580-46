@@ -2,7 +2,7 @@
 li{
     list-style: none;
 }
-a{
+#links{
     text-decoration: none;
     color: #fff;
     font-size: 1rem;
@@ -11,8 +11,9 @@ a:hover{
     color: orange;
 }
 header{
-    position: relative;
+    position: sticky;
     padding: 0 2rem;
+    backdrop-filter: blur(15px);
 }
 .navbar{
     width: 100%;
@@ -23,8 +24,9 @@ header{
     align-items: center;
 justify-content: space-around;
 gap: 20rem;
+position: sticky;
 }
-.navbar .logo a{
+.navbar .logo #links{
     font-size: 1.5rem;
     font-weight: bold;
 }

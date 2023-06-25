@@ -5,6 +5,8 @@ import { InputText } from '../Form/Input/InputText';
 import { MainButton } from '../Buttons/MainButton';
 import { SignupMsg } from '../Signin/SignupMsg';
 import { UserType } from '../Types/UserType';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { useNavigate } from 'react-router';
 export const SigninPage = () => {
     // Logic for the component
     const [isSignin, setIsSignin] = useState<boolean>(false);
@@ -73,10 +75,17 @@ export const SigninPage = () => {
         setRePassword(value)
     }
 
+    const navigate = useNavigate();
+
+    const handleNavigate = (path: string) => {
+      navigate(path);
+    };
+    
     const checkUserLogin = (users: UserType[]) => {
         for (const user of users) {
             if (user.username === username && user.password === password) {
-                return true
+                handleNavigate('/home')
+                return true;
             }
         }
         return false

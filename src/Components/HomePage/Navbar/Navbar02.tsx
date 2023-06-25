@@ -4,26 +4,25 @@ import './NavStyle.css';
 import ViewWeekIcon from '@mui/icons-material/ViewWeek';
 import CloseIcon from '@mui/icons-material/Close';
 import { SigninPage } from '../../Signin/Signin';
-import Blog from '../Blog';
-
-const NavbarContainer = style('div')({
-  // Define your navbar container styles here
-});
+import { useNavigate } from 'react-router';
+import ErrorAlert from '../NotSigned/ErrorAlert/ErrorAlert';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isSignin, setIsSignin] = useState(false);
+  const [isErrorAlertOpen, setIsErrorAlertOpen] = useState(false);
 
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleIsSignin = () => {
-    setIsSignin(!isSignin);
+  const navigate = useNavigate();
+
+  const handleNavigate = (path: string) => {
+    navigate(path);
   };
 
-  const handleSigninToggle = () => {
-    setIsSignin(!isSignin);
+  const handleErrorAlert = () => {
+    setIsErrorAlertOpen(true);
   };
 
   return (
@@ -31,25 +30,25 @@ const Navbar = () => {
       <header>
         <div className="navbar">
           <div className="logo">
-            <a href="#">Steal</a>
+            <h3 id='links' >Steal</h3>
           </div>
           <ul className="links">
             <li>
-              <a href="home">Home</a>
+              <h3 id='links' onClick={() => handleNavigate("/guestPage")} >Home</h3>
             </li>
             <li>
-              <a href="http://localhost:3000/blog">Blog</a>
+              <h3 id='links' onClick={handleErrorAlert} >Blog</h3>
             </li>
             <li>
-              <a href="games">Games</a>
+              <h3 id='links' onClick={handleErrorAlert} >Games</h3>
             </li>
             <li>
-              <a href="contact">Contact</a>
+              <h3 id='links' onClick={handleErrorAlert} >Contact</h3>
             </li>
           </ul>
-          <a className="action-btn" onClick={handleIsSignin}>
+          <h4 className="action-btn" onClick={() => handleNavigate('/')}>
             Signin
-          </a>
+          </h4>
           <div className="bars-btn" onClick={handleClick}>
             <i>{!isOpen ? <ViewWeekIcon /> : <CloseIcon />}</i>
           </div>
@@ -57,28 +56,26 @@ const Navbar = () => {
         <div className={`dropdown-menu ${isOpen ? 'open' : ''}`}>
           <ul>
             <li>
-              <a href="home">Home</a>
+              <h3 id='links' onClick={() => handleNavigate("/guestPage")}>Home</h3>
             </li>
             <li>
-              <a href="about">About</a>
+              <h3 id='links' onClick={handleErrorAlert} >About</h3>
             </li>
             <li>
-              <a href="games">Games</a>
+              <h3 id='links' onClick={handleErrorAlert} >Games</h3>
             </li>
             <li>
-              <a href="contact">Contact</a>
+              <h3 id='links' onClick={handleErrorAlert} >Contact</h3>
             </li>
             <li>
-            <a className="action-btn" onClick={handleIsSignin}>
-            Signin
-          </a>
+              <h4 className="action-btn" onClick={() => handleNavigate('/')}>
+                Signin
+              </h4>
             </li>
           </ul>
         </div>
-        <div className={`signinDiv ${isSignin ? 'open' : ''}`}>
-          <SigninPage handleSigninToggle={handleSigninToggle} />
-        </div>
       </header>
+      {isErrorAlertOpen && <ErrorAlert alertMessage='NOT SIGNEDIN' />}
     </>
   );
 };
