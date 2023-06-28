@@ -6,8 +6,9 @@ import './Signin.css'
 import { InputText } from '../Form/Input/InputText';
 import { MainButton } from '../Buttons/MainButton';
 import { SignupMsg } from '../Signin/SignupMsg';
-import { UserType } from '../../Types/UserType';
 import { ErrorMessage } from '../Form/Errors/ErrorMessage';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { firebaseAuth } from '../../services/firebase/firebaseConfig';
 
 // Create Signin component (visual component - thats why it ends with tsx)
 export const SigninPage = () => {
@@ -24,58 +25,6 @@ export const SigninPage = () => {
     const [signinError, setSigninError] = useState<string>("");
 
     const navigate = useNavigate()
-
-    // getAllUser which brings me the users array from localStorage
-    const getAllUsers = () => {
-        // take the value of "users" from localstorage and assign it into users 
-        const users = localStorage.getItem('users');
-        // check if users is truthy
-        if (users) {
-            // return the parsed json and assign it a userType[]
-            return JSON.parse(users) as UserType[];
-        } else {
-            // in case users is falsy we want to return an empty array
-            return []
-        }
-    }
-
-
-
-    // setCurrentUser is getting a user and add it to localstorage as "currentUser" value
-    const setCurrentUser = (user: UserType) => {
-        // we stringfy the user and assign it to userStr variable
-        const userStr = JSON.stringify(user)
-        // we set the value of currentUser in localstorage to the userStr
-        localStorage.setItem('currentUser', userStr)
-    }
-
-    // setUsers that gets users array and save them in "users" at the localStorage
-    const setUsers = (users: UserType[]) => {
-        // we convert the users array to string and assign it to usersStr
-        const usersStr = JSON.stringify(users)
-        // update "users" with the new variable of usersStr in localStorage
-        localStorage.setItem('users', usersStr)
-    }
-
-    // updateUsers he gets a new user, push it to users array and return it back
-    const updateUsers = (user: UserType) => {
-        // we get the users array from localstorage and assign it to users variable
-        const users = getAllUsers();
-        // we push the new user into users array
-        users.push(user);
-        // we return the updated users array back
-        return users;
-    }
-
-    // createNewUser has the logic when we creating a new user with argument of user
-    const createNewUser = (user: UserType) => {
-        // we call the updateUsers function and send it a user and then assign it to users
-        const users = updateUsers(user);
-        // we call setUsers with the updated users array
-        setUsers(users);
-        // we call setCurrentUser and send it the new user
-        setCurrentUser(user);
-    }
 
     // handleIsSignin is for handling the isSignIn state
     const handleIsSignin = () => {
@@ -126,82 +75,25 @@ export const SigninPage = () => {
         }
     }
 
-    // checkUserLogin gets users array, and check if any of the users
-    // is exists compared to our states!!!!! 
-    const checkUserLogin = (users: UserType[]) => {
-        // we run on all users array
-        for (const user of users) {
-            // we check if there is any user that has the current username and password
-            // compared to the states (the values that just inserted)
-            if (user.username === username && user.password === password) {
-                // if we find that the "if" is true, we return true
-                return true
-            }
-        }
-        // if we end running on all users without have any success, return false
-        return false
-    }
-
-    // checkUserSignup gets users array, and check if we already have any username
-    // that is already exists
-    const checkUserSignup = (users: UserType[]) => {
-        // we run on all users array
-        for (const user of users) {
-            // we check each user if he has the same username that 
-            // inserted inside our username state
-            if (user.username === username) {
-                // if exists - we return false
-                return false
-            }
-        }
-        // if we finished without any exception, we return true
-        return true
-    }
 
 
-    // handleSigninUser handles the signup and signin for our component
-    const handleSigninUser = () => {
+
+
+    const handleSigninUser = async () => {
         if(!usernameError && !passwordError && !rePasswordError && !signinError){
-            // we call getAllUsers and assign to users
-            const users = getAllUsers()
-            // we check if isSignin is true - it means we are trying to login/signin
         if (isSignin) {
-            // we call checkUserLogin and make sure that our user can login
-            // and assign it to isOkay
-            const isOkay = checkUserLogin(users);
-            // if isOkay is true
-            if (isOkay) {
-                // we create new user object with our states
-                const currentUser: UserType = { username, password }
-                // setCurrentUser to localStorage
-                setCurrentUser(currentUser)
-                // alert that the user signed in successfully!
+                signInWithEmailAndPassword(firebaseAuth, username, password)
+                .then(res => console.log(res))
+                .catch(err => console.log(err))
                 navigate('/home')
-                // if isOkay is false
-            } else {
-                // alert 'Incorrect username or password'
-                setSigninError('Incorrect username or password')
             }
-            // if isSignin is false - it means the user trying to signup
-        } else {
-            // check if password and rePassword is matched
+         else {
             if (password === rePassword) {
-                // we call checkUserSignup and assign the answer to isOkay
-                const isOkay = checkUserSignup(users);
-                // if isOkay is true
-                if (isOkay) {
-                    // then we create new user
-                    const newUser = { username, password } as UserType
-                    // we call createNewUser and send it the newUser
-                    createNewUser(newUser);
-                    // we alert 'User created succesfully!'
+                    await createUserWithEmailAndPassword(firebaseAuth, username, password)
+                    .then(res => console.log(res.user))
+                    .catch(err => console.log(err))
                     navigate('/home')
-                } else {
-                    // if isOkay is false, it means the user already exists!
-                    setSigninError('User already exists!')
-                }
             } else {
-                // if password and rePassword is not match, we alert the user
                 setRePasswordError("Passwords not match")
             }
         }
@@ -218,7 +110,6 @@ export const SigninPage = () => {
                 that depends on the value of isSignin*/}
                 <h1 className='signinTitle'>{isSignin ? "Signin" : "Signup"}</h1>
                 {/* call InputText component and send it handleOnChange placeholder and type props*/}
-
                 <InputText handleOnChange={handleUsername} placeholder='username' type='text' />
                 <ErrorMessage errorMsg={usernameError} />
                 <InputText handleOnChange={handlePassword} placeholder='password' type='password' />
@@ -238,6 +129,5 @@ export const SigninPage = () => {
             {/* we close the container!*/}
         </div>
     )
-    // here we end the component
 }
 // thanks
