@@ -1,6 +1,7 @@
 // we first of all, import libraries
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 // only then we import components from our repository
 import './Signin.css'
 import { InputText } from '../Form/Input/InputText';
@@ -83,16 +84,21 @@ export const SigninPage = () => {
         if(!usernameError && !passwordError && !rePasswordError && !signinError){
         if (isSignin) {
                 signInWithEmailAndPassword(firebaseAuth, username, password)
-                .then(res => console.log(res))
-                .catch(err => console.log(err))
-                navigate('/home')
+                .then(res => {
+                    toast.success(res.user.email + " Signed in!")
+                    navigate('/home')
+                })
+                .catch(err => toast.error(err.message))
             }
          else {
             if (password === rePassword) {
                     await createUserWithEmailAndPassword(firebaseAuth, username, password)
-                    .then(res => console.log(res.user))
-                    .catch(err => console.log(err))
-                    navigate('/home')
+                    .then(res => {
+                        toast.success(res.user.email + " created!")
+                        navigate('/home')
+                    })
+                    .catch(err => toast.error(err.message))
+                  
             } else {
                 setRePasswordError("Passwords not match")
             }

@@ -1,4 +1,5 @@
 import { Outlet, createBrowserRouter } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import NavBar from '../Components/NavBar/NavBar';
 import { SigninPage } from '../Components/Signin/Signin';
 import ProfileUser from '../Components/ProfileUser/ProfileUser';
@@ -8,15 +9,15 @@ import { AboutPage } from '../Components/About/AboutPage';
 import { StorePage } from '../Components/Store/StorePage';
 import { FavoritesPage } from '../Components/Favorites/FavoritesPage';
 import CheckoutPage from '../Components/CheckoutPage/CheckoutPage';
-
+import 'react-toastify/dist/ReactToastify.css';
 
 export const router = createBrowserRouter([
     {
         path: "/",
         element: <>
+            <ToastContainer />
             <NavBar />
             <Outlet />
-            
         </>,
         errorElement: <Error404 />,
         children: [
@@ -59,7 +60,7 @@ export const router = createBrowserRouter([
             {
                 path: '/checkout',
                 element: <>
-                <CheckoutPage />
+                    <CheckoutPage />
                 </>
             },
         ]
