@@ -15,6 +15,12 @@
     box-shadow: 1px 1px 8px #DDE6ED;
 }
 
-.signinTitle{
+.signinTitle {
     color: #DDE6ED;
+}
+
+
+.GoogleLogin {
+    display: 'flex';
+    justify-content: 'center';
 }

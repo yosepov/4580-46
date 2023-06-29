@@ -1,15 +1,15 @@
-// we first of all, import libraries
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-// only then we import components from our repository
 import './Signin.css'
 import { InputText } from '../Form/Input/InputText';
 import { MainButton } from '../Buttons/MainButton';
 import { SignupMsg } from '../Signin/SignupMsg';
 import { ErrorMessage } from '../Form/Errors/ErrorMessage';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 import { firebaseAuth } from '../../services/firebase/firebaseConfig';
+import { GoogleLogin } from '@react-oauth/google';
+
 
 // Create Signin component (visual component - thats why it ends with tsx)
 export const SigninPage = () => {
@@ -37,18 +37,20 @@ export const SigninPage = () => {
         setSigninError("")
     }
 
-    // handleUsername get's one arg called value and set it to username state
     const handleUsername = (value: string) => {
-        // we call setUsername and assign to it the value we get from the input
         setUsername(value);
         if (value === "") {
-            setUsernameError("username is required")
-        } else  if (value.length < 6 || value.length > 12) {
-            setUsernameError("username must be between 6 to 12 letters")
-        }else {
-            setUsernameError("")
+            setUsernameError("Username is required");
+        } else if (value.length < 6 || value.length > 12) {
+            setUsernameError("Username must be between 6 and 12 characters");
+            toast.error("Username must be between 6 and 12 characters");
+        } else if (!/^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(value)) {
+            setUsernameError("Invalid email format");
+            toast.error("Invalid email format");
+        } else {
+            setUsernameError("");
         }
-    }
+    };
 
     // handlePassword that gets value and set it to the password state
     const handlePassword = (value: string) => {
@@ -69,7 +71,7 @@ export const SigninPage = () => {
         setRePassword(value)
         if (value === "") {
             setRePasswordError("re-password is required")
-        }else if (value.length < 6 || value.length > 12) {
+        } else if (value.length < 6 || value.length > 12) {
             setRePasswordError("password must be between 6 to 12")
         } else {
             setRePasswordError("")
@@ -80,31 +82,53 @@ export const SigninPage = () => {
 
 
 
+
     const handleSigninUser = async () => {
-        if(!usernameError && !passwordError && !rePasswordError && !signinError){
         if (isSignin) {
+            // Sign-in form validation
+            if (!usernameError && !passwordError) {
                 signInWithEmailAndPassword(firebaseAuth, username, password)
-                .then(res => {
-                    toast.success(res.user.email + " Signed in!")
-                    navigate('/home')
-                })
-                .catch(err => toast.error(err.message))
-            }
-         else {
-            if (password === rePassword) {
-                    await createUserWithEmailAndPassword(firebaseAuth, username, password)
                     .then(res => {
-                        toast.success(res.user.email + " created!")
-                        navigate('/home')
+                        toast.success(res.user.email + " Signed in!");
+                        navigate('/home');
                     })
-                    .catch(err => toast.error(err.message))
-                  
+                    .catch(err => {
+                        if (err.code === "auth/user-not-found") {
+                            toast.error("Incorrect username");
+                        } else if (err.code === "auth/wrong-password") {
+                            toast.error("Incorrect password");
+                        } else {
+                            toast.error("Sign-in failed");
+                        }
+                    });
             } else {
-                setRePasswordError("Passwords not match")
+                toast.error("Please fill in all required fields");
+            }
+        } else {
+            // Sign-up form validation
+            if (!usernameError && !passwordError && !rePasswordError) {
+                if (password === rePassword) {
+                    await createUserWithEmailAndPassword(firebaseAuth, username, password)
+                        .then(res => {
+                            toast.success(res.user.email + " created!");
+                            navigate('/home');
+                        })
+                        .catch(err => toast.error(err.message));
+                } else {
+                    setRePasswordError("Passwords do not match");
+                    toast.error("Passwords do not match");
+                }
+            } else {
+                toast.error("Please fill in all required fields");
             }
         }
-    }
-    }
+    };
+
+
+
+
+
+
 
     // return the visual part of the component (one JSX element)
     return (
@@ -126,6 +150,19 @@ export const SigninPage = () => {
                 <ErrorMessage errorMsg={signinError} />
                 {/* we render the MainButton custom component that gets 2 props, and the title depends on isSinin value */}
                 <MainButton handlOnClick={handleSigninUser} title={isSignin ? "Signin" : "Signup"} />
+                {isSignin && (
+                    <div className="GoogleLogin">
+                        <GoogleLogin
+                            onSuccess={credentialResponse => {
+                                console.log(credentialResponse);
+                            }}
+                            onError={() => {
+                                console.log('Login Failed');
+                            }}
+                        />
+                    </div>
+                )}
+
                 {/* we render the SignupMsg with 2 props, that the text has a dependency on isSignin value */}
                 <SignupMsg
                     text={isSignin ? "Not a user yet? Click to SignUp!" : "already have an account? Signin!"}
@@ -136,4 +173,9 @@ export const SigninPage = () => {
         </div>
     )
 }
+
+function signInWithPopup(auth: any, provider: any) {
+    throw new Error('Function not implemented.');
+}
 // thanks
+
