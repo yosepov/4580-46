@@ -2,19 +2,21 @@ import React, { useEffect } from "react";
 import "./NavBar.css";
 import NavButton from "./NavbarButtons/NavbarButton";
 import { useNavigate } from 'react-router-dom';
-import { getCurrentUser, logoutUser } from "../../utils/userSigninFunctions";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { logoutUser, selectCurrentUser } from "../../features/User/userSlice";
 const NavBar = () => {
     const navigate = useNavigate();
-
+    const dispatch = useAppDispatch();
+    const user = useAppSelector(selectCurrentUser)
+    
     const handleNavigate = (path: string) => {
         navigate(path);
     }
 
     const handleLogout = () => {
-        logoutUser()
+        dispatch(logoutUser())
         navigate('/signin');
     }
-    const user = getCurrentUser();
 
     useEffect(() => {
         if(user && window.location.pathname === '/'){
@@ -37,7 +39,7 @@ const NavBar = () => {
             </div>
             <div className="navAvatar">
                 {user && <img onClick={() => handleNavigate('/profile')} className="img" src="/avatar.jpg" alt="avatar" />}
-                <h3 onClick={user ? () => handleLogout() : () => handleNavigate('/signin')} >{user ? 'logout' : 'signin'}</h3>
+                <h3 onClick={user ? () => handleLogout() : () => handleNavigate('/signin')} >{user ? 'logout ' + user.email : 'signin'}</h3>
             </div>
         </div>
     );

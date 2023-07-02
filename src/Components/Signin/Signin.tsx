@@ -10,10 +10,12 @@ import { SignupMsg } from '../Signin/SignupMsg';
 import { ErrorMessage } from '../Form/Errors/ErrorMessage';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { firebaseAuth } from '../../services/firebase/firebaseConfig';
+import { useAppDispatch } from '../../app/hooks';
+import { setCurrentUser } from '../../features/User/userSlice';
 
 // Create Signin component (visual component - thats why it ends with tsx)
 export const SigninPage = () => {
-
+    const dispatch = useAppDispatch(); // return useDispatch
     // Logic for the component
     // creating here our states for the Signin component
     const [isSignin, setIsSignin] = useState<boolean>(false);
@@ -85,16 +87,20 @@ export const SigninPage = () => {
         if (isSignin) {
                 signInWithEmailAndPassword(firebaseAuth, username, password)
                 .then(res => {
-                    toast.success(res.user.email + " Signed in!")
+                    const user = res.user;
+                    dispatch(setCurrentUser(user))
+                    toast.success(user.email + " Signed in!")
                     navigate('/home')
                 })
                 .catch(err => toast.error(err.message))
             }
-         else {
-            if (password === rePassword) {
+            else {
+                if (password === rePassword) {
                     await createUserWithEmailAndPassword(firebaseAuth, username, password)
                     .then(res => {
-                        toast.success(res.user.email + " created!")
+                        const user = res.user;
+                        dispatch(setCurrentUser(user))
+                        toast.success(user.email + " created!")
                         navigate('/home')
                     })
                     .catch(err => toast.error(err.message))
