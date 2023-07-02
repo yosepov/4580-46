@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import "./NavBar.css";
-import NavButton from "./NavbarButtons/NavbarButton";
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { logoutUser, selectCurrentUser } from "../../features/User/userSlice";
@@ -8,7 +7,7 @@ const NavBar = () => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
     const user = useAppSelector(selectCurrentUser)
-    
+
     const handleNavigate = (path: string) => {
         navigate(path);
     }
@@ -19,9 +18,9 @@ const NavBar = () => {
     }
 
     useEffect(() => {
-        if(user && window.location.pathname === '/'){
+        if (user && window.location.pathname === '/') {
             navigate('/home')
-        }else if(!user && window.location.pathname === '/'){
+        } else if (!user && window.location.pathname === '/') {
             navigate('/signin')
         }
     })
@@ -38,7 +37,7 @@ const NavBar = () => {
                 {user && <span className="links" onClick={() => handleNavigate('/favorites')} >Favorites</span>}
             </div>
             <div className="navAvatar">
-                {user && <img onClick={() => handleNavigate('/profile')} className="img" src="/avatar.jpg" alt="avatar" />}
+                {user && <img onClick={() => handleNavigate('/profile')} className="img" src={user.photoURL ? user.photoURL : "/avatar.jpg"} alt="avatar" />}
                 <h3 onClick={user ? () => handleLogout() : () => handleNavigate('/signin')} >{user ? 'logout ' + user.email : 'signin'}</h3>
             </div>
         </div>

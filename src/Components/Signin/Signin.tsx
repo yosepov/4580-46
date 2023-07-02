@@ -8,8 +8,8 @@ import { InputText } from '../Form/Input/InputText';
 import { MainButton } from '../Buttons/MainButton';
 import { SignupMsg } from '../Signin/SignupMsg';
 import { ErrorMessage } from '../Form/Errors/ErrorMessage';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
-import { firebaseAuth } from '../../services/firebase/firebaseConfig';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
+import { firebaseAuth, googleProvider } from '../../services/firebase/firebaseConfig';
 import { useAppDispatch } from '../../app/hooks';
 import { setCurrentUser } from '../../features/User/userSlice';
 
@@ -112,6 +112,17 @@ export const SigninPage = () => {
     }
     }
 
+    const handleGoogleSignin = () => {
+        signInWithPopup(firebaseAuth, googleProvider)
+        .then(res => {
+            const user = res.user;
+            dispatch(setCurrentUser(user))
+            toast.success(user.email + " Signed in!")
+            navigate('/home')
+        })
+        .catch(err => toast.error(err.message))
+    }
+
     // return the visual part of the component (one JSX element)
     return (
         // we return one div that is the container for the component
@@ -132,6 +143,7 @@ export const SigninPage = () => {
                 <ErrorMessage errorMsg={signinError} />
                 {/* we render the MainButton custom component that gets 2 props, and the title depends on isSinin value */}
                 <MainButton handlOnClick={handleSigninUser} title={isSignin ? "Signin" : "Signup"} />
+                <MainButton handlOnClick={handleGoogleSignin} title={ "Sign in with Google"} />
                 {/* we render the SignupMsg with 2 props, that the text has a dependency on isSignin value */}
                 <SignupMsg
                     text={isSignin ? "Not a user yet? Click to SignUp!" : "already have an account? Signin!"}
