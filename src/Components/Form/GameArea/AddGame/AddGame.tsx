@@ -1,22 +1,37 @@
-
-import { MenuItem, TextField, alpha } from '@mui/material';
+import { Button, MenuItem, TextField, alpha } from '@mui/material';
 import { useForm } from 'react-hook-form';
-import { GameType, gameConsoles } from '../../../../Types/GameType';
+import { GameType, gameCategories, gameConsoles } from '../../../../Types/GameType';
 import "./addGame.css";
 
 export const AddGame = () => {
     const { register, handleSubmit, formState } = useForm<GameType>();
+
     const inputStyle = {
         backgroundColor: alpha("#FFEBEB", 0.6),
         borderBottom: '2px solid #FF6000',
         input: { color: 'white' },
     }
 
-    
-    
+    const addGameSubmit = (game: GameType) => {
+        console.log(game)
+    }
+
+    const categoriesMenuItems = gameCategories.map((category) => (
+        <MenuItem key={category} value={category}>
+            {category}
+        </MenuItem>
+    ))
+
+    const gameMenuItems = gameConsoles.map((console) => (
+        <MenuItem key={console} value={console}>
+            {console}
+        </MenuItem>
+    ))
+
+
     return <>
         <div className='addGameContainer'>
-            <form>
+            <form onSubmit={handleSubmit(addGameSubmit)}>
                 <TextField
                     type='text'
                     label="name"
@@ -26,6 +41,8 @@ export const AddGame = () => {
                     title='name'
                     {...register("name")}
                 />
+                <br />
+                <span>{formState.errors.name?.message}</span>
                 <br />
                 <br />
                 <TextField
@@ -104,12 +121,24 @@ export const AddGame = () => {
                     defaultValue={gameConsoles[0]}
                     {...register("console")}
                 >
-                    {gameConsoles.map((console) => (
-                        <MenuItem key={console} value={console}>
-                            {console}
-                        </MenuItem>
-                    ))}
+                    {gameMenuItems}
                 </TextField>
+                <br />
+                <br />
+                <TextField
+                    select
+                    label="categories"
+                    variant='standard'
+                    color='warning'
+                    sx={inputStyle}
+                    title='categories'
+                    defaultValue={gameCategories[0]}
+                    {...register("category")}
+                >
+                    {categoriesMenuItems}
+                </TextField>
+
+                <Button type='submit'>Add Game</Button>
             </form>
         </div>
     </>

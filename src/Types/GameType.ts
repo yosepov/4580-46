@@ -14,7 +14,6 @@ export type GameType = {
     version: string;
 }
 
-
 export type GameCategoryType = 'Action' | 'FPS' | 'Strategy' | 'Horror' | 'RPG' | 'MMO' | 'Adventure' | 'Simulator' | 'Multiplayer'
 export type GameConsoleType = 'PS3' | 'PS4' | 'PS5' | 'XBOX360' | 'XBOXONE' | 'XBOX-S' | 'XBOX-X' | 'PC' | 'Mobile' | 'Nintendo'
 
