@@ -1,3 +1,5 @@
+import { AddGame } from "../Form/GameArea/AddGame/AddGame"
+
 export const HomePage = () => {
-    return <h1>HOME Page</h1>
+    return <AddGame />
 }
