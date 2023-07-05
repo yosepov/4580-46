@@ -1,0 +1,18 @@
+.containerDiv {
+    text-align: center;
+}
+
+.formDiv {
+    display: grid;
+    background-color: #315876;
+    width: 500px;
+    height: 500px;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: auto;
+}
+
+.gameDiv {
+    margin-top: -60px;
+}
+

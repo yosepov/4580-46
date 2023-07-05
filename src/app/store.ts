@@ -4,6 +4,7 @@ import storage from 'redux-persist/lib/storage'; // defaults to localStorage for
 import { combineReducers, configureStore, Action, ThunkAction } from '@reduxjs/toolkit';
 import userReducer from '../features/User/userSlice'
 import { persistReducer } from 'redux-persist';
+import gameReducer from '../features/Game/gameSlice'
 
 const persistConfig = {
     key: "root",
@@ -12,6 +13,7 @@ const persistConfig = {
 
 const reducers = combineReducers({
     user: userReducer,
+    game: gameReducer
 })
 
 const persistedReducer = persistReducer(persistConfig, reducers);

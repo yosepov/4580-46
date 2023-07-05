@@ -6,9 +6,10 @@ interface InputTextProps {
     type: string;
     placeholder: string;
     handleOnChange: (value: string) => void;
+    className?: string,
 }
 
-export const InputText = ({ type, placeholder, handleOnChange }: InputTextProps) => {
+export const InputText = ({ type, placeholder, handleOnChange, className }: InputTextProps) => {
     return <TextField onChange={
         (e: React.ChangeEvent<HTMLInputElement>) => handleOnChange(e.target.value)}
         className='inputText' type={type}
