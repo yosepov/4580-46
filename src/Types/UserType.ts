@@ -1,4 +1,6 @@
 export type UserType = {
-    username: string;
-    password: string;
+    id: string;
+    email: string;
+    photoUrl: string;
+    games: string[];
 }

@@ -12,6 +12,8 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithP
 import { firebaseAuth, googleProvider } from '../../services/firebase/firebaseConfig';
 import { useAppDispatch } from '../../app/hooks';
 import { setCurrentUser } from '../../features/User/userSlice';
+import { addUserToDB } from '../../services/firebase/addUserToDB';
+import { getUserFromDB } from '../../services/firebase/getUserFromDB';
 
 // Create Signin component (visual component - thats why it ends with tsx)
 export const SigninPage = () => {
@@ -45,9 +47,9 @@ export const SigninPage = () => {
         setUsername(value);
         if (value === "") {
             setUsernameError("username is required")
-        } else  if (value.length < 6 || value.length > 12) {
+        } else if (value.length < 6 || value.length > 12) {
             setUsernameError("username must be between 6 to 12 letters")
-        }else {
+        } else {
             setUsernameError("")
         }
     }
@@ -71,7 +73,7 @@ export const SigninPage = () => {
         setRePassword(value)
         if (value === "") {
             setRePasswordError("re-password is required")
-        }else if (value.length < 6 || value.length > 12) {
+        } else if (value.length < 6 || value.length > 12) {
             setRePasswordError("password must be between 6 to 12")
         } else {
             setRePasswordError("")
@@ -83,44 +85,49 @@ export const SigninPage = () => {
 
 
     const handleSigninUser = async () => {
-        if(!usernameError && !passwordError && !rePasswordError && !signinError){
-        if (isSignin) {
+        if (!usernameError && !passwordError && !rePasswordError && !signinError) {
+            if (isSignin) {
                 signInWithEmailAndPassword(firebaseAuth, username, password)
-                .then(res => {
-                    const user = res.user;
-                    dispatch(setCurrentUser(user))
-                    toast.success(user.email + " Signed in!")
-                    navigate('/home')
-                })
-                .catch(err => toast.error(err.message))
+                    .then(res => {
+                        const user = res.user;
+                        dispatch(setCurrentUser(user))
+                        toast.success(user.email + " Signed in!")
+                        navigate('/home')
+                    })
+                    .catch(err => toast.error(err.message))
             }
             else {
                 if (password === rePassword) {
                     await createUserWithEmailAndPassword(firebaseAuth, username, password)
-                    .then(res => {
-                        const user = res.user;
-                        dispatch(setCurrentUser(user))
-                        toast.success(user.email + " created!")
-                        navigate('/home')
-                    })
-                    .catch(err => toast.error(err.message))
-                  
-            } else {
-                setRePasswordError("Passwords not match")
+                        .then(async res => {
+                            const user = res.user;
+                            dispatch(setCurrentUser(user))
+                            await addUserToDB(user);
+                            toast.success(user.email + " created!")
+                            navigate('/home')
+                        })
+                        .catch(err => toast.error(err.message))
+
+                } else {
+                    setRePasswordError("Passwords not match")
+                }
             }
         }
-    }
     }
 
     const handleGoogleSignin = () => {
         signInWithPopup(firebaseAuth, googleProvider)
-        .then(res => {
-            const user = res.user;
-            dispatch(setCurrentUser(user))
-            toast.success(user.email + " Signed in!")
-            navigate('/home')
-        })
-        .catch(err => toast.error(err.message))
+            .then(async res => {
+                const user = res.user;
+                const ifUser = await getUserFromDB(user.uid);
+                if(!ifUser.data()){
+                    await addUserToDB(user);
+                }
+                dispatch(setCurrentUser(user))
+                toast.success(user.email + " Signed in!")
+                navigate('/home')
+            })
+            .catch(err => toast.error(err.message))
     }
 
     // return the visual part of the component (one JSX element)
@@ -143,7 +150,7 @@ export const SigninPage = () => {
                 <ErrorMessage errorMsg={signinError} />
                 {/* we render the MainButton custom component that gets 2 props, and the title depends on isSinin value */}
                 <MainButton handlOnClick={handleSigninUser} title={isSignin ? "Signin" : "Signup"} />
-                <MainButton handlOnClick={handleGoogleSignin} title={ "Sign in with Google"} />
+                <MainButton handlOnClick={handleGoogleSignin} title={"Sign in with Google"} />
                 {/* we render the SignupMsg with 2 props, that the text has a dependency on isSignin value */}
                 <SignupMsg
                     text={isSignin ? "Not a user yet? Click to SignUp!" : "already have an account? Signin!"}

@@ -20,6 +20,7 @@ interface GameCardProps {
   discord?: string;
   home: string;
   download: string;
+  video: string;
 }
 
 export const GameCard = ({
@@ -36,6 +37,7 @@ export const GameCard = ({
   discord,
   home,
   download,
+  video,
 }: GameCardProps) => {
   return (
     <>
@@ -103,7 +105,7 @@ export const GameCard = ({
             </div>
             
             <div className="video">
-              <iframe src="./Warrock.mp4" title="Warrock"></iframe>
+              <iframe src={video} title="Warrock"></iframe>
             </div>
           </div>
 </Tilt>

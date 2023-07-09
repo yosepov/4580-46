@@ -34,6 +34,7 @@ const NavBar = () => {
                 <span className="links" onClick={() => handleNavigate('/home')} >Home</span>
                 <span className="links" onClick={() => handleNavigate('/store')} >Store</span>
                 <span className="links" onClick={() => handleNavigate('/about')} >About</span>
+                <span className="links" onClick={() => handleNavigate('/addnewgame')} >Add-Game</span>
                 {user && <span className="links" onClick={() => handleNavigate('/favorites')} >Favorites</span>}
             </div>
             <div className="navAvatar">

@@ -2,18 +2,21 @@ import { Button, MenuItem, TextField, alpha } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import { GameType, gameCategories, gameConsoles } from '../../../../Types/GameType';
 import "./addGame.css";
+import { addGameToDB } from '../../../../services/firebase/addGameToDB';
+import { useNavigate } from 'react-router-dom';
 
 export const AddGame = () => {
     const { register, handleSubmit, formState } = useForm<GameType>();
-
+    const navigate = useNavigate();
     const inputStyle = {
         backgroundColor: alpha("#FFEBEB", 0.6),
         borderBottom: '2px solid #FF6000',
         input: { color: 'white' },
     }
 
-    const addGameSubmit = (game: GameType) => {
-        console.log(game)
+    const addGameSubmit = async (game: GameType) => {
+        await addGameToDB(game)
+        navigate('/home')
     }
 
     const categoriesMenuItems = gameCategories.map((category) => (

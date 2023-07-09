@@ -5,8 +5,8 @@ export type GameType = {
     coverUrl: string;
     imageUrl: string[];
     videoUrl: string;
-    category: GameCategoryType[];
-    console: GameConsoleType[];
+    category: GameCategoryType;
+    console: GameConsoleType;
     price: number;
     rating: number[];
     release: string;
