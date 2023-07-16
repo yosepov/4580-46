@@ -21,9 +21,6 @@ export const GameList = () => {
         fetchGames()
     }, [])
 
-
-
-
     return <>
         <Box display={'flex'} flexWrap={'wrap'} rowGap={'20px'} columnGap={'20px'} justifyContent={'space-evenly'}>
         {games.length === 0 ? 

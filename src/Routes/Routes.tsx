@@ -11,6 +11,7 @@ import { FavoritesPage } from '../Components/Favorites/FavoritesPage';
 import CheckoutPage from '../Components/CheckoutPage/CheckoutPage';
 import 'react-toastify/dist/ReactToastify.css';
 import { AddGame } from '../Components/Form/GameArea/AddGame/AddGame';
+import { GamePage } from '../Components/GamePage/GamePage';
 
 export const router = createBrowserRouter([
     {
@@ -32,6 +33,12 @@ export const router = createBrowserRouter([
                 path: '/signin',
                 element: <>
                     <SigninPage />
+                </>
+            },
+            {
+                path: '/game/:id',
+                element: <>
+                    <GamePage />
                 </>
             },
             {
