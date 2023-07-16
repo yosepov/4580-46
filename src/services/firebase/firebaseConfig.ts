@@ -8,6 +8,7 @@ import { FirebaseAppConfig } from "../../Types/FirebaseAppConfig";
 
 // Your web app's Firebase configuration
 const firebaseConfig: FirebaseAppConfig = {
+
 };
 
 // Initialize Firebase
