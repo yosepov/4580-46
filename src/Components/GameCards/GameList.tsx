@@ -25,7 +25,7 @@ export const GameList = () => {
         <Box display={'flex'} flexWrap={'wrap'} rowGap={'20px'} columnGap={'20px'} justifyContent={'space-evenly'}>
         {games.length === 0 ? 
         <CircularProgress />:  
-            games.map(game => <CardGame game={game} />)
+            games.map((game, index) => <CardGame key={index} game={game} />)
         }
         </Box>
     </>
