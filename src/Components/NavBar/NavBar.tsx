@@ -13,20 +13,40 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { useNavigate } from 'react-router-dom';
-
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { logoutUser, selectCurrentUser } from '../../features/User/userSlice';
+    
 const pages = ['Store', 'Add Game'];
 const settings = ['Profile', 'Logout'];
 
 export const NavBar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
     const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const user = useAppSelector(selectCurrentUser);
+    const dispatch = useAppDispatch();
 
     React.useEffect(() => {
         if (window.location.pathname === '/') {
             navigate('home')
         }
-    }, )
+    },)
+
+    const handleNavigateProfile = () => {
+        navigate('/profile')
+        handleCloseUserMenu()
+    }
+
+
+    const handleLogout = () => {
+        dispatch(logoutUser())
+        navigate('/signin')
+        handleCloseUserMenu()
+    }
+
+    const handleNavigateSignin = () => {
+        navigate('/signin')
+    }
 
     const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorElNav(event.currentTarget);
@@ -44,7 +64,7 @@ export const NavBar = () => {
     };
 
     return (
-        <AppBar position="static">
+        <AppBar color='transparent'  position="static">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -133,10 +153,10 @@ export const NavBar = () => {
                         ))}
                     </Box>
 
-                    <Box sx={{ flexGrow: 0 }}>
+                    {user ? <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                                <Avatar alt={user.email ? user.email : "U"} src={user.photoURL ? user.photoURL :"/static/images/avatar/2.jpg"} />
                             </IconButton>
                         </Tooltip>
                         <Menu
@@ -156,12 +176,14 @@ export const NavBar = () => {
                             onClose={handleCloseUserMenu}
                         >
                             {settings.map((setting) => (
-                                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                                <MenuItem key={setting} onClick={(setting === 'Logout' && handleLogout) || (setting === 'Profile' && handleNavigateProfile) || handleCloseUserMenu}>
                                     <Typography textAlign="center">{setting}</Typography>
                                 </MenuItem>
                             ))}
                         </Menu>
                     </Box>
+                    :
+                    <Typography style={{cursor: 'pointer'}} onClick={handleNavigateSignin}>Signin</Typography>}
                 </Toolbar>
             </Container>
         </AppBar>
