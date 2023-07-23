@@ -48,9 +48,10 @@ export const ProfileUser =({img,country , username, nickname, email}: ProfileUse
       
           <li >
             <img
+            
               width={100}
               src="./assets/sims.jpeg"
-              alt="Warkraft photo"
+              alt="Warkraft"
               className="game-avatar"
             />
            
@@ -62,9 +63,10 @@ export const ProfileUser =({img,country , username, nickname, email}: ProfileUse
          
           <li>
             <img
+            
               width={100}
               src="./assets/gta5.jpeg"
-              alt="Warkraft photo"
+              alt="Warkraft"
               className="game-avatar"
             />
             <p className="name-game">GTA 5</p>
@@ -74,9 +76,10 @@ export const ProfileUser =({img,country , username, nickname, email}: ProfileUse
           </li>
           <li>
             <img
+            
               width={100}
               src="./assets/warcraft.jpeg"
-              alt="Warkraft photo"
+              alt="Warkraft"
               className="game-avatar"
             />
             <p className="name-game">Warkraft</p>
@@ -87,9 +90,10 @@ export const ProfileUser =({img,country , username, nickname, email}: ProfileUse
           </li>
           <li>
             <img
+            
               width={100}
               src="./assets/1.jpeg"
-              alt="Warkraft photo"
+              alt="Warkraft"
               className="game-avatar"
             />
             <p className="name-game">Songs of Conquest</p>
@@ -99,9 +103,10 @@ export const ProfileUser =({img,country , username, nickname, email}: ProfileUse
           </li>
           <li>
             <img
+            
               width={100}
               src="./assets/2.png"
-              alt="Warkraft photo"
+              alt="Warkraft"
               className="game-avatar"
             />
             <p className="name-game">Diablo IV (4)</p>
@@ -111,9 +116,10 @@ export const ProfileUser =({img,country , username, nickname, email}: ProfileUse
           </li>
           <li>
             <img
+            
               width={100}
               src="./assets/3.jpeg"
-              alt="Warkraft photo"
+              alt="Warkraft"
               className="game-avatar"
             />
             <p className="name-game">Assassin's Creed Mirage</p>
@@ -128,25 +134,25 @@ export const ProfileUser =({img,country , username, nickname, email}: ProfileUse
           <h2 className="activity">Ofline </h2>
           <ul className="paremetrs">
             <li className="nav-parametrs">
-              <a href="#">Achive</a>
+              <a href="/">Achive</a>
             </li>
             <li className="nav-parametrs">
-              <a href="#">
+              <a href="/">
                 Games 
               </a>
             </li>
             <li className="nav-parametrs">
-              <a href="#">
+              <a href="/">
                 Screen 
               </a>
             </li>
             <li className="nav-parametrs">
-              <a href="#">
+              <a href="/">
               Inventory
               </a>
             </li>
             <li className="nav-parametrs">
-              <a href="#">
+              <a href="/">
               Video
               </a>
             </li>
@@ -155,9 +161,10 @@ export const ProfileUser =({img,country , username, nickname, email}: ProfileUse
           <ul className="friends">
             <li>
               <img
+              
                 width={100}
                 src="./assets/User234.jpeg"
-                alt="avatar-photo"
+                alt="avatar"
                 className="friends"
               />
               <p className="name">Olia</p>
@@ -165,9 +172,10 @@ export const ProfileUser =({img,country , username, nickname, email}: ProfileUse
             </li>
             <li>
               <img
+              
                 width={100}
                 src="./assets/Andriy.jpeg"
-                alt="avatar-photo"
+                alt="avatar"
                 className="friends"
               />
               <p className="name">Jonh</p>

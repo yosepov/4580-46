@@ -15,7 +15,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { logoutUser, selectCurrentUser } from '../../features/User/userSlice';
-    
+
 const pages = ['Store', 'Add Game'];
 const settings = ['Profile', 'Logout'];
 
@@ -47,6 +47,14 @@ export const NavBar = () => {
     const handleNavigateSignin = () => {
         navigate('/signin')
     }
+    const handleNavigateStore = () => {
+        navigate('/store')
+        handleCloseNavMenu()
+    }
+    const handleNavigateAddGame = () => {
+        navigate('/addnewgame')
+        handleCloseNavMenu()
+    }
 
     const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorElNav(event.currentTarget);
@@ -64,7 +72,7 @@ export const NavBar = () => {
     };
 
     return (
-        <AppBar color='transparent'  position="static">
+        <AppBar color='transparent' position="static">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -116,7 +124,7 @@ export const NavBar = () => {
                             }}
                         >
                             {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                                <MenuItem key={page} onClick={(page === 'Store' && handleNavigateStore) || (page === 'Add Game' && handleNavigateAddGame) || handleCloseNavMenu}>
                                     <Typography textAlign="center">{page}</Typography>
                                 </MenuItem>
                             ))}
@@ -127,7 +135,7 @@ export const NavBar = () => {
                         variant="h5"
                         noWrap
                         component="a"
-                        href=""
+                        href="/"
                         sx={{
                             mr: 2,
                             display: { xs: 'flex', md: 'none' },
@@ -145,7 +153,7 @@ export const NavBar = () => {
                         {pages.map((page) => (
                             <Button
                                 key={page}
-                                onClick={handleCloseNavMenu}
+                                onClick={(page === 'Store' && handleNavigateStore) || (page === 'Add Game' && handleNavigateAddGame) || handleCloseNavMenu}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
                                 {page}
@@ -156,7 +164,7 @@ export const NavBar = () => {
                     {user ? <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt={user.email ? user.email : "U"} src={user.photoURL ? user.photoURL :"/static/images/avatar/2.jpg"} />
+                                <Avatar alt={user.email ? user.email : "U"} src={user.photoURL ? user.photoURL : "/static/images/avatar/2.jpg"} />
                             </IconButton>
                         </Tooltip>
                         <Menu
@@ -182,8 +190,8 @@ export const NavBar = () => {
                             ))}
                         </Menu>
                     </Box>
-                    :
-                    <Typography style={{cursor: 'pointer'}} onClick={handleNavigateSignin}>Signin</Typography>}
+                        :
+                        <Typography style={{ cursor: 'pointer' }} onClick={handleNavigateSignin}>Signin</Typography>}
                 </Toolbar>
             </Container>
         </AppBar>

@@ -4,6 +4,7 @@ import { GameType, gameCategories, gameConsoles } from '../../../../Types/GameTy
 import "./addGame.css";
 import { addGameToDB } from '../../../../services/firebase/addGameToDB';
 import { useNavigate } from 'react-router-dom';
+import { UploadFiles } from '../../../UploadFiles/UploadFiles';
 
 export const AddGame = () => {
     const { register, handleSubmit, formState } = useForm<GameType>();
@@ -35,6 +36,7 @@ export const AddGame = () => {
     return <>
         <div className='addGameContainer'>
             <form onSubmit={handleSubmit(addGameSubmit)}>
+              
                 <TextField
                     type='text'
                     label="name"
@@ -140,9 +142,15 @@ export const AddGame = () => {
                 >
                     {categoriesMenuItems}
                 </TextField>
-
+                <UploadFiles 
+                fileMetaData='image/jpeg'
+                fileTypes={['jpeg', 'png']}
+                fullStoragePath='games/images'
+                uploadButtonTitle='upload game doc'
+                />
                 <Button type='submit'>Add Game</Button>
             </form>
+     
         </div>
     </>
 }
