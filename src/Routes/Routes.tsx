@@ -60,6 +60,12 @@ export const router = createBrowserRouter([
                 </>
             },
             {
+                path: '/editgame/:id',
+                element: <>
+                    <AddGame isEdited={true} />
+                </>
+            },
+            {
                 path: '/store',
                 element: <>
                     <StorePage />
