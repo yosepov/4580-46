@@ -14,6 +14,8 @@ import { useAppDispatch } from '../../app/hooks';
 import { setCurrentUser } from '../../features/User/userSlice';
 import { addUserToDB } from '../../services/firebase/addUserToDB';
 import { getUserFromDB } from '../../services/firebase/getUserFromDB';
+import { UserType } from '../../Types/UserType';
+import { setMainUser } from '../../features/User/mainUser';
 
 // Create Signin component (visual component - thats why it ends with tsx)
 export const SigninPage = () => {
@@ -91,6 +93,13 @@ export const SigninPage = () => {
                     .then(res => {
                         const user = res.user;
                         dispatch(setCurrentUser(user))
+                        const mainUser = {
+                            id: user.uid,
+                            email: user.email ? user.email : "",
+                            games: [],
+                            photoURL: user.photoURL?user.photoURL: "" 
+                        }as UserType;
+                        dispatch(setMainUser(mainUser))
                         toast.success(user.email + " Signed in!")
                         navigate('/home')
                     })
@@ -102,7 +111,8 @@ export const SigninPage = () => {
                         .then(async res => {
                             const user = res.user;
                             dispatch(setCurrentUser(user))
-                            await addUserToDB(user);
+                            const mainUser = await addUserToDB(user) as UserType;
+                            dispatch(setMainUser(mainUser))
                             toast.success(user.email + " created!")
                             navigate('/home')
                         })
@@ -121,8 +131,11 @@ export const SigninPage = () => {
                 const user = res.user;
                 const ifUser = await getUserFromDB(user.uid);
                 if(!ifUser.data()){
-                    await addUserToDB(user);
+                    const mainUser = await addUserToDB(user) as UserType;
+                    dispatch(setMainUser(mainUser))
                 }
+                const mainUser = await addUserToDB(user) as UserType;
+                dispatch(setMainUser(mainUser))
                 dispatch(setCurrentUser(user))
                 toast.success(user.email + " Signed in!")
                 navigate('/home')

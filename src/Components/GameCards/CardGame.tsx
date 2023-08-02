@@ -1,5 +1,5 @@
 
-import * as React from 'react';
+import { useState, useEffect } from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -8,15 +8,58 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { GameType } from '../../Types/GameType';
 import { useNavigate } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { selectmainUser, setMainUser } from '../../features/User/mainUser';
+import { addGameToFavorites, removeGameFromFavorites } from '../../services/firebase/addGameToFavorites';
+import { UserType } from '../../Types/UserType';
+import { getUserFromDB } from '../../services/firebase/getUserFromDB';
 
 interface GameCardProps {
     game: GameType;
-    handleDelete:  () => void;
+    handleDelete: () => void;
 }
 
 export const CardGame = ({ game, handleDelete }: GameCardProps) => {
+    const [isFavorite, setIsFavorite] = useState<boolean>();
+    const reduxUser = useAppSelector(selectmainUser)
+    const [user, setUser] = useState<UserType | null>(null)
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            if (reduxUser) {
+                const myUser = await getUserFromDB(reduxUser.id)
+                const userData = myUser.data() as UserType;
+                setUser(userData)
+            }
+        }
+        fetchUser();
+    }, [isFavorite])
+
+    useEffect(() => {
+        if(user){
+            if(user.games.findIndex(g => g ===  game.id) !== -1){
+                setIsFavorite(true)
+            }else{
+                setIsFavorite(false)
+            }
+        }
+    }, [user])
     const navigate = useNavigate();
-    
+
+    const handleFavorite = async () => {
+        if (user) {
+            if (isFavorite) {
+                setIsFavorite(false);
+                await removeGameFromFavorites(user, game.id)
+                setUser(null)
+            } else {
+                setIsFavorite(true);
+                await addGameToFavorites(user, game.id)
+                setUser(null)
+            }
+        }
+    }
+
     const handleNavigateGame = () => {
         navigate(`/game/${game.id}`)
     }
@@ -50,6 +93,7 @@ export const CardGame = ({ game, handleDelete }: GameCardProps) => {
                 <Button color="error" variant='contained' size="small" onClick={handleDelete}>Delete</Button>
                 <Button color="warning" variant='contained' size="small" onClick={handleEditGame}>Edit</Button>
             </CardActions>
+            {reduxUser && <Button variant='text' size="small" onClick={handleFavorite}> {isFavorite ? '💕' : '🤍'} </Button>}
         </Card>
     );
 }

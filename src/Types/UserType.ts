@@ -1,6 +1,6 @@
 export type UserType = {
     id: string;
     email: string;
-    photoUrl: string;
+    photoURL: string;
     games: string[];
 }

@@ -15,6 +15,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { logoutUser, selectCurrentUser } from '../../features/User/userSlice';
+import { logoutMainUser } from '../../features/User/mainUser';
 
 const pages = ['Store', 'Add Game'];
 const settings = ['Profile', 'Logout'];
@@ -40,6 +41,7 @@ export const NavBar = () => {
 
     const handleLogout = () => {
         dispatch(logoutUser())
+        dispatch(logoutMainUser())
         navigate('/signin')
         handleCloseUserMenu()
     }

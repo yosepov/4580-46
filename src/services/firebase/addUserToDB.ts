@@ -11,11 +11,11 @@ export const addUserToDB = async (user: User) => {
         id: user.uid,
         email: user.email ? user.email : "",
         games: [],
-        photoUrl: user.photoURL?user.photoURL: "" 
+        photoURL: user.photoURL?user.photoURL: "" 
     }
 
     setDoc(doc(database,"users", user.uid), newUser);
-
+    
     return newUser;
     } catch (err) {
         console.log(err)
