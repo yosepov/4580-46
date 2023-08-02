@@ -3,6 +3,7 @@ import { getAllGamesFromDB } from "../../services/firebase/getAllGamesFromDB"
 import { GameType } from "../../Types/GameType"
 import { Box, CircularProgress } from "@mui/material"
 import { CardGame } from "./CardGame"
+import { deleteGameFromDB } from "../../services/firebase/deleteGameFromDB"
 
 
 export const GameList = () => {
@@ -18,14 +19,20 @@ export const GameList = () => {
             setGames(getGames)
         }
         // run the fetch games
-        fetchGames()
-    }, [])
+            fetchGames()
+    }, [games])
+
+
+    const handleDeleteGame = async (gameId: string) => {
+        await deleteGameFromDB(gameId);
+        setGames([]);
+    }
 
     return <>
         <Box display={'flex'} flexWrap={'wrap'} rowGap={'20px'} columnGap={'20px'} justifyContent={'space-evenly'}>
         {games.length === 0 ? 
         <CircularProgress />:  
-            games.map((game, index) => <CardGame key={index} game={game} />)
+            games.map((game, index) => <CardGame handleDelete={() =>handleDeleteGame(game.id)} key={index} game={game} />)
         }
         </Box>
     </>

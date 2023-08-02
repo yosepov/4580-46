@@ -8,13 +8,13 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { GameType } from '../../Types/GameType';
 import { useNavigate } from 'react-router-dom';
-import { deleteGameFromDB } from '../../services/firebase/deleteGameFromDB';
 
 interface GameCardProps {
     game: GameType;
+    handleDelete:  () => void;
 }
 
-export const CardGame = ({ game }: GameCardProps) => {
+export const CardGame = ({ game, handleDelete }: GameCardProps) => {
     const navigate = useNavigate();
     
     const handleNavigateGame = () => {
@@ -24,10 +24,7 @@ export const CardGame = ({ game }: GameCardProps) => {
         navigate(`/editgame/${game.id}`)
     }
 
-    const handleDeleteGame = async () => {
-        await deleteGameFromDB(game.id);
-        window.location.reload();
-    }
+
 
     return (
         <Card sx={{ maxWidth: 345 }}>
@@ -50,7 +47,7 @@ export const CardGame = ({ game }: GameCardProps) => {
                 </Typography> &nbsp;
                 <Button variant='contained' color="success" size="small">Buy</Button>
                 <Button size="small" onClick={handleNavigateGame}>More</Button>
-                <Button color="error" variant='contained' size="small" onClick={handleDeleteGame}>Delete</Button>
+                <Button color="error" variant='contained' size="small" onClick={handleDelete}>Delete</Button>
                 <Button color="warning" variant='contained' size="small" onClick={handleEditGame}>Edit</Button>
             </CardActions>
         </Card>
