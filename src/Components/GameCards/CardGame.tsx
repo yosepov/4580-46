@@ -8,8 +8,8 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { GameType } from '../../Types/GameType';
 import { useNavigate } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { selectmainUser, setMainUser } from '../../features/User/mainUser';
+import {  useAppSelector } from '../../app/hooks';
+import { selectmainUser } from '../../features/User/mainUser';
 import { addGameToFavorites, removeGameFromFavorites } from '../../services/firebase/addGameToFavorites';
 import { UserType } from '../../Types/UserType';
 import { getUserFromDB } from '../../services/firebase/getUserFromDB';
@@ -33,7 +33,7 @@ export const CardGame = ({ game, handleDelete }: GameCardProps) => {
             }
         }
         fetchUser();
-    }, [isFavorite])
+    }, [reduxUser, user])
 
     useEffect(() => {
         if(user){
@@ -43,7 +43,7 @@ export const CardGame = ({ game, handleDelete }: GameCardProps) => {
                 setIsFavorite(false)
             }
         }
-    }, [user])
+    }, [user,game.id])
     const navigate = useNavigate();
 
     const handleFavorite = async () => {
@@ -51,11 +51,9 @@ export const CardGame = ({ game, handleDelete }: GameCardProps) => {
             if (isFavorite) {
                 setIsFavorite(false);
                 await removeGameFromFavorites(user, game.id)
-                setUser(null)
             } else {
                 setIsFavorite(true);
                 await addGameToFavorites(user, game.id)
-                setUser(null)
             }
         }
     }
