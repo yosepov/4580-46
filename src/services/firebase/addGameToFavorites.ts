@@ -22,13 +22,15 @@ export const removeGameFromFavorites = async (user: UserType, gameId: string) =>
     try{
         const myUser = await getUserFromDB(user.id);
         const userData = myUser.data() as UserType;
-        const index = userData.games.findIndex(g => g === gameId);
-        console.log(userData.games)
-        let newArr = userData.games.length <= 1 ? [] : userData.games.slice(index, 1)
-           console.log(newArr)
+        const newArray = [];
+        for(const game of userData.games){
+            if(game !== gameId){
+                newArray.push(game);
+            }
+        }
         const docRef = doc(database, "users", user.id);
        await updateDoc(docRef, {
-        games: newArr
+        games: newArray
     })
     return userData;
     }catch(err){
